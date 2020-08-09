@@ -61,8 +61,8 @@ module testbench();
     initial begin //Tabla 3
         #17 
         $display("\n");
-        $display("A B C D| Y");
-        $display("-------|---");
+        $display("A B C  D | Y");
+        $display("--------|---");
         $monitor("%b %b %b %b | $b", p7, p8, p9, p10, pz5);
            p7 = 0; p8 = 0; p9 = 0; p10 = 0;
         #1 p7 = 0; p8 = 0; p9 = 0; p10 = 1;
@@ -85,8 +85,8 @@ module testbench();
     initial begin //Tabla 4
         #33
         $display("\n");
-        $display("A B C D| Y");
-        $display("-------|---");
+        $display("A B C D | Y");
+        $display("--------|---");
         $monitor("%b %b %b %b | $b", p11, p12, p13, p14, pz7);
            p11 = 0; p12 = 0; p13 = 0; p14 = 0;
         #1 p11 = 0; p12 = 0; p13 = 0; p14 = 1;
@@ -143,8 +143,8 @@ module testbench();
     initial begin //Tabla 3
         #65 
         $display("\n");
-        $display("A B C D| Y");
-        $display("-------|---");
+        $display("A B C D | Y");
+        $display("--------|---");
         $monitor("%b %b %b %b | $b", o7, o8, o9, o10, pz6);
            o7 = 0; o8 = 0; o9 = 0; o10 = 0;
         #1 o7 = 0; o8 = 0; o9 = 0; o10 = 1;
@@ -167,8 +167,8 @@ module testbench();
     initial begin //Tabla 4
         #81
         $display("\n");
-        $display("A B C D| Y");
-        $display("-------|---");
+        $display("A B C D | Y");
+        $display("--------|---");
         $monitor("%b %b %b %b | $b", o11, o12, o13, o14, pz8);
            o11 = 0; o12 = 0; o13 = 0; o14 = 0;
         #1 o11 = 0; o12 = 0; o13 = 0; o14 = 1;

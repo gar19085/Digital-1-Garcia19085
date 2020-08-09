@@ -81,27 +81,27 @@ endmodule
 //Tabla 1
 module Logic_Lvl_1(input wire A, B, C, output wire Y);
 
-    assign Y = (~A & ~C) | (A & C) | (A & ~B);
+    assign Y = (~B & ~C & ~D) | (A & ~C) | (A & ~D) | (A & ~B);
 
 endmodule
 
 //Tabla 2
 module Logic_Lvl_2(input wire A, B, C, output wire Y);
 
-    assign Y = (~B);
+    assign Y = (~B) + (C);
 
 endmodule
 
 //Tabla 3
 module Logic_Lvl_3(input wire A, B, C, D, output wire Y);
 
-    assign Y = (~A & ~B & ~C & ~D) | (~A & B & ~C & ~D) | (~A & B & ~C & D) | (A & ~B & ~C & D) | (~A & ~B & C & D) | (A & B & C & D) | (~A & B & C & ~D) | (A & ~B & C & ~D);
+    assign Y = (~B & ~C & D) | (B) | (A & D);
 
 endmodule
 
 //Tabla 4
-module Logic_Lvl_4(input wire A, B, C, D, output wire Y);
+module Logic_Lvl_4(input wire A, B, C, output wire Y);
 
-    assign Y = (A & ~C & ~D) | (A & B) | (A & C);
+    assign Y = (~A & ~C) | (B);
 
 endmodule
