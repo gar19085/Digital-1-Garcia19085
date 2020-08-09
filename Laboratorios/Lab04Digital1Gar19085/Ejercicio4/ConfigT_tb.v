@@ -137,9 +137,9 @@ module testbench();
        #65
         $display("\n");
         $display("A B C | Y");
-        %display("------|---");
+        $display("------|---");
         $monitor("%b %b %b | $b", o5, o6, o7, pz4);
-         5 = 0; o6 = 0; o7 = 1;
+         o5 = 0; o6 = 0; o7 = 1;
         #1 o5 = 0; o6 = 1; o7 = 0;
         #1 o5 = 0; o6 = 1; o7 = 1;
         #1 o5 = 1; o6 = 0; o7 = 0;
