@@ -1,8 +1,7 @@
 //Universidad del Valle Digital 1
 //Rodrigo José García Ambrosy Carne:19085
 //Tablas Ejercicio 1
-//Gate Level Modeling Tabla 1 y 2
-//Operadores lógicos Tabla 3 y 4
+//Tablas por Operadores Logicos
 
 //Ecuación a implementar: Y = (B' * C' * D') + (A * C') + (A * D') + (A * B')
 //Tabla 1 Por Gate Level Modeling
