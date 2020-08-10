@@ -1,4 +1,6 @@
-// Config de cada modulo en el Testbench();
+//Universidad del Valle Digital 1
+//Rodrigo José García Ambrosy Carne:19085
+//Config de cada modulo en el Testbench();
 
 
 //Inicio del module testbench
