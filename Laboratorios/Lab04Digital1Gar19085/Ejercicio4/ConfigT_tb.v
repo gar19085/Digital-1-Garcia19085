@@ -21,7 +21,7 @@ module testbench();
     GateLvl_3      G3(p7, p8, p9, p10, pz5); //Config Modulo
     GateLvl_4      G4(p11, p12, p13, p14, pz7); //Config Modulo
 //Tablas Ejercicio 2
-    Logic_Lvl_1    L1(o1, o2, o3, 04, pz2); //Config Operador
+    Logic_Lvl_1    L1(o1, o2, o3, o4, pz2); //Config Operador
     Logic_Lvl_2    L2(o5, o6, o7, pz4); //Config Operador
     Logic_Lvl_3    L3(o8, o9, o10, o11, pz6); //Config Operador
     Logic_Lvl_4    L4(o12, o13, o14, pz8); //Config Operador
@@ -32,7 +32,7 @@ module testbench();
         $display("Tablas 1, 2, 3, 4, Ejercicio 1");
         $display("A B C | Y");
         $display("------|---");
-        $monitor("%b %b %b | $b", p1, p2, p3, pz1);
+        $monitor("%b %b %b | %b", p1, p2, p3, pz1);
            p1 = 0; p2 = 0; p3 = 0;
         #1 p1 = 0; p2 = 0; p3 = 1;
         #1 p1 = 0; p2 = 1; p3 = 0;
@@ -48,7 +48,7 @@ module testbench();
         $display("\n");
         $display("A B C | Y");
         $display("------|---");
-        $monitor("%b %b %b | $b", p4, p5, p6, pz3);
+        $monitor("%b %b %b | %b", p4, p5, p6, pz3);
            p4 = 0; p5 = 0; p6 = 0;
         #1 p4 = 0; p5 = 0; p6 = 1;
         #1 p4 = 0; p5 = 1; p6 = 0;
@@ -64,7 +64,7 @@ module testbench();
         $display("\n");
         $display("A B C  D | Y");
         $display("--------|---");
-        $monitor("%b %b %b %b | $b", p7, p8, p9, p10, pz5);
+        $monitor("%b %b %b %b | %b", p7, p8, p9, p10, pz5);
            p7 = 0; p8 = 0; p9 = 0; p10 = 0;
         #1 p7 = 0; p8 = 0; p9 = 0; p10 = 1;
         #1 p7 = 0; p8 = 0; p9 = 1; p10 = 0;
@@ -88,7 +88,7 @@ module testbench();
         $display("\n");
         $display("A B C D | Y");
         $display("--------|---");
-        $monitor("%b %b %b %b | $b", p11, p12, p13, p14, pz7);
+        $monitor("%b %b %b %b | %b", p11, p12, p13, p14, pz7);
            p11 = 0; p12 = 0; p13 = 0; p14 = 0;
         #1 p11 = 0; p12 = 0; p13 = 0; p14 = 1;
         #1 p11 = 0; p12 = 0; p13 = 1; p14 = 0;
@@ -114,7 +114,7 @@ module testbench();
         $display("Tablas 1, 2, 3, 4, Ejercicio 2");
         $display("A B C D | Y");
         $display("--------|---");
-        $monitor("%b %b %b %b | $b", o1, o2, o3, o4, pz2);
+        $monitor("%b %b %b %b | %b", o1, o2, o3, o4, pz2);
            o1 = 0; o2 = 0; o3 = 0; o4 = 0;
         #1 o1 = 0; o2 = 0; o3 = 0; o4 = 1;
         #1 o1 = 0; o2 = 0; o3 = 1; o4 = 0;
@@ -138,8 +138,9 @@ module testbench();
         $display("\n");
         $display("A B C | Y");
         $display("------|---");
-        $monitor("%b %b %b | $b", o5, o6, o7, pz4);
-         o5 = 0; o6 = 0; o7 = 1;
+        $monitor("%b %b %b | %b", o5, o6, o7, pz4);
+           o5 = 0; o6 = 0; o7 = 0;
+        #1 o5 = 0; o6 = 0; o7 = 1;
         #1 o5 = 0; o6 = 1; o7 = 0;
         #1 o5 = 0; o6 = 1; o7 = 1;
         #1 o5 = 1; o6 = 0; o7 = 0;
@@ -153,7 +154,7 @@ module testbench();
         $display("\n");
         $display("A B C D | Y");
         $display("--------|---");
-        $monitor("%b %b %b %b | $b", o8, o9, o10, o11, pz6);
+        $monitor("%b %b %b %b | %b", o8, o9, o10, o11, pz6);
            o8 = 0; o9 = 0; o10 = 0; o11 = 0;
         #1 o8 = 0; o9 = 0; o10 = 0; o11 = 1;
         #1 o8 = 0; o9 = 0; o10 = 1; o11 = 0;
@@ -177,7 +178,7 @@ module testbench();
         $display("\n");
         $display("A B C | Y");
         $display("------|---");
-        $monitor("%b %b %b %b | $b", o12, o13, o14, pz8);
+        $monitor("%b %b %b | %b", o12, o13, o14, pz8);
            o12 = 0; o13 = 0; o14 = 0;
         #1 o12 = 0; o13 = 0; o14 = 1;
         #1 o12 = 0; o13 = 1; o14 = 0;

@@ -79,7 +79,7 @@ endmodule
 //Funciones a implementar
 
 //Tabla 1
-module Logic_Lvl_1(input wire A, B, C, output wire Y);
+module Logic_Lvl_1(input wire A, B, C, D, output wire Y);
 
     assign Y = (~B & ~C & ~D) | (A & ~C) | (A & ~D) | (A & ~B);
 
