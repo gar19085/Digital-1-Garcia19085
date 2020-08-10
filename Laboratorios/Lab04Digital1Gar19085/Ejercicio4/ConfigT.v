@@ -48,7 +48,7 @@ module GateLvl_3(input wire A, B, C, D, output wire Y);
     not (n3, C);
     not (n4, D);
     and (w1, n1, n2, n3, n4);
-    and (w2, n1, B, n3, n4);
+    and (w2, A, B, n3, n4);
     and (w3, n1, B, n3, D);
     and (w4, A, n2, n3, D);
     and (w5, n1, n2, C, D);
@@ -76,7 +76,7 @@ module GateLvl_4(input wire A, B, C, D, output wire Y);
     or  (Y, w1, w2, w3);
 endmodule
 
-//Funciones a implementar
+//Inicio Configuracion Operadores Logicos Tablas Ejercicio 2
 
 //Tabla 1
 module Logic_Lvl_1(input wire A, B, C, D, output wire Y);
@@ -88,7 +88,7 @@ endmodule
 //Tabla 2
 module Logic_Lvl_2(input wire A, B, C, output wire Y);
 
-    assign Y = (~B) + (C);
+    assign Y = (~B) | (C);
 
 endmodule
 
