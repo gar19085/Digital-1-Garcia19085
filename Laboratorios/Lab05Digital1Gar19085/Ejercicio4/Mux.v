@@ -5,7 +5,7 @@
 
 //IMPLEMENTO DEL MODULO MUX2:1 UTILIZADO EL OPERADOR TERNARIO
 module Mux2x1(input wire [3:0] D0, D1, 
-              input wire       S,
+              input wire      S,
               output wire [3:0] Y);
     
     assign Y = S ? D1 : D0;
