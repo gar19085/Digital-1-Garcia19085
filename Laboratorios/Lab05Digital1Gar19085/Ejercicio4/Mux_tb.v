@@ -5,8 +5,11 @@
 //CONFIG DEL TESTBENCH
 
 module  TESTBENCH();
-    reg D0, D1, S; //MUX 2:1
+    //MUX 2:1
+    reg D0, D1, S; //TABLA 01
     wire Y;
+
+    //MUX 4:1
 
 //MUX 2:1
     Mux2x1 M2(D0, D1, S, Y);
