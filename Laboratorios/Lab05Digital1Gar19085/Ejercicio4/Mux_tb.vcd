@@ -1,5 +1,5 @@
 $date
-	Sat Aug 15 22:30:42 2020
+	Sun Aug 16 11:29:18 2020
 $end
 $version
 	Icarus Verilog
@@ -108,36 +108,35 @@ $var wire 1 + A $end
 $var wire 1 , B $end
 $var wire 1 - C $end
 $var wire 1 G G $end
-$var wire 1 H Not1 $end
-$var wire 1 I O1 $end
-$var wire 1 J V $end
+$var wire 1 H N1 $end
+$var wire 1 I V $end
 $var wire 1 " Y $end
 $scope module M4a12 $end
-$var wire 1 J D0 $end
+$var wire 1 I D0 $end
 $var wire 1 G D1 $end
-$var wire 1 J D2 $end
-$var wire 1 I D3 $end
-$var wire 1 + S0 $end
-$var wire 1 , S1 $end
-$var wire 1 K low $end
-$var wire 1 L hig $end
+$var wire 1 I D2 $end
+$var wire 1 H D3 $end
+$var wire 1 , S0 $end
+$var wire 1 + S1 $end
+$var wire 1 J low $end
+$var wire 1 K hig $end
 $var wire 1 " Y $end
 $scope module higmux $end
-$var wire 1 J D0 $end
-$var wire 1 I D1 $end
-$var wire 1 + S $end
-$var wire 1 L Y $end
-$upscope $end
-$scope module lowmux $end
-$var wire 1 J D0 $end
-$var wire 1 G D1 $end
-$var wire 1 + S $end
+$var wire 1 I D0 $end
+$var wire 1 H D1 $end
+$var wire 1 , S $end
 $var wire 1 K Y $end
 $upscope $end
-$scope module outmux $end
-$var wire 1 K D0 $end
-$var wire 1 L D1 $end
+$scope module lowmux $end
+$var wire 1 I D0 $end
+$var wire 1 G D1 $end
 $var wire 1 , S $end
+$var wire 1 J Y $end
+$upscope $end
+$scope module outmux $end
+$var wire 1 J D0 $end
+$var wire 1 K D1 $end
+$var wire 1 + S $end
 $var wire 1 " Y $end
 $upscope $end
 $upscope $end
@@ -146,85 +145,85 @@ $scope module M81 $end
 $var wire 1 6 A $end
 $var wire 1 7 B $end
 $var wire 1 8 C $end
-$var wire 1 M G $end
-$var wire 1 N V $end
+$var wire 1 L G $end
+$var wire 1 M V $end
 $var wire 1 $ Y $end
 $scope module M8a11 $end
-$var wire 1 M D0 $end
-$var wire 1 N D1 $end
-$var wire 1 N D2 $end
-$var wire 1 M D3 $end
-$var wire 1 N D4 $end
-$var wire 1 M D5 $end
-$var wire 1 M D6 $end
-$var wire 1 N D7 $end
+$var wire 1 L D0 $end
+$var wire 1 M D1 $end
+$var wire 1 M D2 $end
+$var wire 1 L D3 $end
+$var wire 1 M D4 $end
+$var wire 1 L D5 $end
+$var wire 1 L D6 $end
+$var wire 1 M D7 $end
 $var wire 1 8 S0 $end
 $var wire 1 7 S1 $end
 $var wire 1 6 S2 $end
 $var wire 1 $ Y $end
-$var wire 1 O SB $end
-$var wire 1 P SA $end
+$var wire 1 N SB $end
+$var wire 1 O SA $end
 $scope module Tig1 $end
-$var wire 1 M D0 $end
-$var wire 1 N D1 $end
-$var wire 1 N D2 $end
-$var wire 1 M D3 $end
-$var wire 1 8 S0 $end
-$var wire 1 7 S1 $end
-$var wire 1 Q low $end
-$var wire 1 R hig $end
-$var wire 1 P Y $end
-$scope module higmux $end
-$var wire 1 N D0 $end
-$var wire 1 M D1 $end
-$var wire 1 8 S $end
-$var wire 1 R Y $end
-$upscope $end
-$scope module lowmux $end
-$var wire 1 M D0 $end
-$var wire 1 N D1 $end
-$var wire 1 8 S $end
-$var wire 1 Q Y $end
-$upscope $end
-$scope module outmux $end
-$var wire 1 Q D0 $end
-$var wire 1 R D1 $end
-$var wire 1 7 S $end
-$var wire 1 P Y $end
-$upscope $end
-$upscope $end
-$scope module Tig2 $end
-$var wire 1 N D0 $end
+$var wire 1 L D0 $end
 $var wire 1 M D1 $end
 $var wire 1 M D2 $end
-$var wire 1 N D3 $end
+$var wire 1 L D3 $end
 $var wire 1 8 S0 $end
 $var wire 1 7 S1 $end
-$var wire 1 S low $end
-$var wire 1 T hig $end
+$var wire 1 P low $end
+$var wire 1 Q hig $end
 $var wire 1 O Y $end
 $scope module higmux $end
 $var wire 1 M D0 $end
-$var wire 1 N D1 $end
+$var wire 1 L D1 $end
 $var wire 1 8 S $end
-$var wire 1 T Y $end
+$var wire 1 Q Y $end
 $upscope $end
 $scope module lowmux $end
-$var wire 1 N D0 $end
+$var wire 1 L D0 $end
+$var wire 1 M D1 $end
+$var wire 1 8 S $end
+$var wire 1 P Y $end
+$upscope $end
+$scope module outmux $end
+$var wire 1 P D0 $end
+$var wire 1 Q D1 $end
+$var wire 1 7 S $end
+$var wire 1 O Y $end
+$upscope $end
+$upscope $end
+$scope module Tig2 $end
+$var wire 1 M D0 $end
+$var wire 1 L D1 $end
+$var wire 1 L D2 $end
+$var wire 1 M D3 $end
+$var wire 1 8 S0 $end
+$var wire 1 7 S1 $end
+$var wire 1 R low $end
+$var wire 1 S hig $end
+$var wire 1 N Y $end
+$scope module higmux $end
+$var wire 1 L D0 $end
 $var wire 1 M D1 $end
 $var wire 1 8 S $end
 $var wire 1 S Y $end
 $upscope $end
+$scope module lowmux $end
+$var wire 1 M D0 $end
+$var wire 1 L D1 $end
+$var wire 1 8 S $end
+$var wire 1 R Y $end
+$upscope $end
 $scope module outmux $end
-$var wire 1 S D0 $end
-$var wire 1 T D1 $end
+$var wire 1 R D0 $end
+$var wire 1 S D1 $end
 $var wire 1 7 S $end
-$var wire 1 O Y $end
+$var wire 1 N Y $end
 $upscope $end
 $upscope $end
 $scope module Tig3 $end
-$var wire 1 P D0 $end
-$var wire 1 O D1 $end
+$var wire 1 O D0 $end
+$var wire 1 N D1 $end
 $var wire 1 6 S $end
 $var wire 1 $ Y $end
 $upscope $end
@@ -234,85 +233,85 @@ $scope module M82 $end
 $var wire 1 . A $end
 $var wire 1 / B $end
 $var wire 1 0 C $end
-$var wire 1 U G $end
-$var wire 1 V V $end
+$var wire 1 T G $end
+$var wire 1 U V $end
 $var wire 1 ! Y $end
 $scope module M8a12 $end
-$var wire 1 V D0 $end
-$var wire 1 V D1 $end
-$var wire 1 U D2 $end
-$var wire 1 U D3 $end
-$var wire 1 V D4 $end
-$var wire 1 V D5 $end
-$var wire 1 V D6 $end
-$var wire 1 U D7 $end
+$var wire 1 U D0 $end
+$var wire 1 U D1 $end
+$var wire 1 T D2 $end
+$var wire 1 T D3 $end
+$var wire 1 U D4 $end
+$var wire 1 U D5 $end
+$var wire 1 U D6 $end
+$var wire 1 T D7 $end
 $var wire 1 0 S0 $end
 $var wire 1 / S1 $end
 $var wire 1 . S2 $end
 $var wire 1 ! Y $end
-$var wire 1 W SB $end
-$var wire 1 X SA $end
+$var wire 1 V SB $end
+$var wire 1 W SA $end
 $scope module Tig1 $end
-$var wire 1 V D0 $end
-$var wire 1 V D1 $end
-$var wire 1 U D2 $end
-$var wire 1 U D3 $end
+$var wire 1 U D0 $end
+$var wire 1 U D1 $end
+$var wire 1 T D2 $end
+$var wire 1 T D3 $end
 $var wire 1 0 S0 $end
 $var wire 1 / S1 $end
-$var wire 1 Y low $end
-$var wire 1 Z hig $end
-$var wire 1 X Y $end
+$var wire 1 X low $end
+$var wire 1 Y hig $end
+$var wire 1 W Y $end
 $scope module higmux $end
+$var wire 1 T D0 $end
+$var wire 1 T D1 $end
+$var wire 1 0 S $end
+$var wire 1 Y Y $end
+$upscope $end
+$scope module lowmux $end
+$var wire 1 U D0 $end
+$var wire 1 U D1 $end
+$var wire 1 0 S $end
+$var wire 1 X Y $end
+$upscope $end
+$scope module outmux $end
+$var wire 1 X D0 $end
+$var wire 1 Y D1 $end
+$var wire 1 / S $end
+$var wire 1 W Y $end
+$upscope $end
+$upscope $end
+$scope module Tig2 $end
+$var wire 1 U D0 $end
+$var wire 1 U D1 $end
+$var wire 1 U D2 $end
+$var wire 1 T D3 $end
+$var wire 1 0 S0 $end
+$var wire 1 / S1 $end
+$var wire 1 Z low $end
+$var wire 1 [ hig $end
+$var wire 1 V Y $end
+$scope module higmux $end
+$var wire 1 U D0 $end
+$var wire 1 T D1 $end
+$var wire 1 0 S $end
+$var wire 1 [ Y $end
+$upscope $end
+$scope module lowmux $end
 $var wire 1 U D0 $end
 $var wire 1 U D1 $end
 $var wire 1 0 S $end
 $var wire 1 Z Y $end
 $upscope $end
-$scope module lowmux $end
-$var wire 1 V D0 $end
-$var wire 1 V D1 $end
-$var wire 1 0 S $end
-$var wire 1 Y Y $end
-$upscope $end
 $scope module outmux $end
-$var wire 1 Y D0 $end
-$var wire 1 Z D1 $end
+$var wire 1 Z D0 $end
+$var wire 1 [ D1 $end
 $var wire 1 / S $end
-$var wire 1 X Y $end
-$upscope $end
-$upscope $end
-$scope module Tig2 $end
-$var wire 1 V D0 $end
-$var wire 1 V D1 $end
-$var wire 1 V D2 $end
-$var wire 1 U D3 $end
-$var wire 1 0 S0 $end
-$var wire 1 / S1 $end
-$var wire 1 [ low $end
-$var wire 1 \ hig $end
-$var wire 1 W Y $end
-$scope module higmux $end
-$var wire 1 V D0 $end
-$var wire 1 U D1 $end
-$var wire 1 0 S $end
-$var wire 1 \ Y $end
-$upscope $end
-$scope module lowmux $end
-$var wire 1 V D0 $end
-$var wire 1 V D1 $end
-$var wire 1 0 S $end
-$var wire 1 [ Y $end
-$upscope $end
-$scope module outmux $end
-$var wire 1 [ D0 $end
-$var wire 1 \ D1 $end
-$var wire 1 / S $end
-$var wire 1 W Y $end
+$var wire 1 V Y $end
 $upscope $end
 $upscope $end
 $scope module Tig3 $end
-$var wire 1 X D0 $end
-$var wire 1 W D1 $end
+$var wire 1 W D0 $end
+$var wire 1 V D1 $end
 $var wire 1 . S $end
 $var wire 1 ! Y $end
 $upscope $end
@@ -322,28 +321,27 @@ $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-x\
-1[
-0Z
-1Y
-xX
+x[
+1Z
+0Y
+1X
 xW
-1V
-0U
-xT
+xV
+1U
+0T
 xS
 xR
 xQ
 xP
 xO
-1N
-0M
-xL
+xN
+1M
+0L
 xK
 xJ
-xI
+1I
 xH
-zG
+0G
 xF
 xE
 xD
@@ -465,81 +463,81 @@ $end
 15
 #17
 0$
+0O
+1N
+1Q
 0P
-1O
+0S
 1R
-0Q
-0T
-1S
 08
 07
 06
 #18
 1$
+1O
+0N
+0Q
 1P
-0O
+1S
 0R
-1Q
-1T
-0S
 18
 #19
 1$
+1Q
+0P
+0S
 1R
-0Q
-0T
-1S
-1P
-0O
+1O
+0N
 08
 17
 #20
 0$
-0P
-1O
+0O
+1N
+0Q
+1P
+1S
 0R
-1Q
-1T
-0S
 18
 #21
-1R
-0Q
-0T
-1S
+1Q
 0P
-1O
+0S
+1R
+0O
+1N
 1$
 08
 07
 16
 #22
 0$
+1O
+0N
+0Q
 1P
-0O
+1S
 0R
-1Q
-1T
-0S
 18
 #23
 0$
+1Q
+0P
+0S
 1R
-0Q
-0T
-1S
-1P
-0O
+1O
+0N
 08
 17
 #24
 1$
-0P
-1O
+0O
+1N
+0Q
+1P
+1S
 0R
-1Q
-1T
-0S
 18
 #25
 0@
@@ -602,94 +600,93 @@ $end
 0>
 1*
 #33
-1I
+1"
 1H
+1K
+1J
 0-
 0,
 0+
 #34
-0I
 0H
 1-
 #35
-1I
+0"
 1H
+1K
+0J
 0-
 1,
 #36
-0I
+0K
 0H
 1-
 #37
-1I
+1"
 1H
-z"
-1L
-zK
+1K
+1J
 0-
 0,
 1+
 #38
-0L
-0I
 0H
 1-
 #39
-1L
-1I
-1H
 1"
+1H
+1K
+0J
 0-
 1,
 #40
 0"
-0L
-0I
+0K
 0H
 1-
 #41
 1!
-1\
-1X
+1[
 1W
+1V
 00
 0/
 0.
 #42
-0\
+0[
 10
 #43
 0!
-1\
-0X
-1W
+1[
+0W
+1V
 00
 1/
 #44
-0W
-0\
+0V
+0[
 10
 #45
 1!
-1\
-1X
+1[
 1W
+1V
 00
 0/
 1.
 #46
-0\
+0[
 10
 #47
 1!
-1\
-0X
-1W
+1[
+0W
+1V
 00
 1/
 #48
 0!
-0W
-0\
+0V
+0[
 10
 #49

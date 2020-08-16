@@ -102,7 +102,7 @@ endmodule //CIERRO MODULO
         //compuertas
             not (Not1, B);
             not (Not2, C);
-            xnor (R3, Not2, B);
+            xnor (R3, B, Not2);
 
         assign O1 = Not1;
         assign O2 = R3;
@@ -115,17 +115,17 @@ endmodule //CIERRO MODULO
 //IMPLEMENTO TABLA2 DEL MUX4:1
    module M4x1Tabla02(input wire A, B, C, 
                       output wire Y);
-        wire O1;
-        wire Not1;
+        wire N1;
         wire V, G;
     //compuertas
-        not (Not1, C);
+        not (N1, C);
+  
 
-        assign O1 = Not1;
+
         assign V = 1;
-        assign V = 0;
+        assign G = 0;
 
-        Mux4x1 M4a12(V, G, V, O1, A, B, Y);
+        Mux4x1 M4a12(V, G, V, N1, B, A, Y);
 
    endmodule
 
