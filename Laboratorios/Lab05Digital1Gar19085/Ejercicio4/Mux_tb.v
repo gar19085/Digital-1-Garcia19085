@@ -9,13 +9,22 @@ module  TESTBENCH();
     
     reg t1, t2, t3, //MUX 2:1
         t4, t5, t6, //MUX 4:1
-        t7, t8, t9; //MUX 8:1
-    wire Pz1, Pz2, Pz3;
+        t7, t8, t9, //MUX 8:1
+        t10, t11, t12, //MUX 2:1 T2
+        t13, t14, t15, //MUX 4:1 T2
+        t16, t17, t18; //MUX 8:1 T2
+    wire Pz1, Pz2, Pz3, Pz4, Pz5, Pz6;
 
 
 //MUX 2:1
-    M2x1Tabla01 M2(t1, t2, t3, Pz1);
-    M4x1Tabla01 M(t4, t5, t6, Pz2);
+    M2x1Tabla01 M21(t1, t2, t3, Pz1);
+    M4x1Tabla01 M41(t4, t5, t6, Pz2);
+    M8x1Tabla01 M81(t7, t8, t9, Pz3);
+
+    M2x1Tabla02 M22(t10, t11, t12, Pz4);
+    M4x1Tabla02 M42(t13, t14, t15, Pz5);
+    M8x1Tabla02 M82(t16, t17, t18, Pz6);
+    
 
 
     initial begin
@@ -68,11 +77,60 @@ module  TESTBENCH();
         #1 t7 = 1; t8 = 1; t9 = 1;
     end //Termina en  24
 
+    initial begin
+        #25
+        $display("\n");
+        $display("MUX2:1, Tabla 02");
+        $display("A B C | Y");
+        $display("------|---");
+        $monitor("%b %b %b | %b", t10, t11, t12, Pz4);
+           t10 = 0; t11 = 0; t12 = 0;
+        #1 t10 = 0; t11 = 0; t12 = 1;
+        #1 t10 = 0; t11 = 1; t12 = 0;
+        #1 t10 = 0; t11 = 1; t12 = 1;
+        #1 t10 = 1; t11 = 0; t12 = 0;
+        #1 t10 = 1; t11 = 0; t12 = 1;
+        #1 t10 = 1; t11 = 1; t12 = 0;
+        #1 t10 = 1; t11 = 1; t12 = 1;
+    end //Termina en  32
 
+    initial begin
+        #33
+        $display("\n");
+        $display("MUX4:1, Tabla 02");
+        $display("A B C | Y");
+        $display("------|---");
+        $monitor("%b %b %b | %b", t13, t14, t15, Pz5);
+           t13 = 0; t14 = 0; t15 = 0;
+        #1 t13 = 0; t14 = 0; t15 = 1;
+        #1 t13 = 0; t14 = 1; t15 = 0;
+        #1 t13 = 0; t14 = 1; t15 = 1;
+        #1 t13 = 1; t14 = 0; t15 = 0;
+        #1 t13 = 1; t14 = 0; t15 = 1;
+        #1 t13 = 1; t14 = 1; t15 = 0;
+        #1 t13 = 1; t14 = 1; t15 = 1;
+    end //Termina en  40
+
+    initial begin
+        #41
+        $display("\n");
+        $display("MUX8:1, Tabla 02");
+        $display("A B C | Y");
+        $display("------|---");
+        $monitor("%b %b %b | %b", t16, t17, t18, Pz6);
+           t16 = 0; t17 = 0; t18 = 0;
+        #1 t16 = 0; t17 = 0; t18 = 1;
+        #1 t16 = 0; t17 = 1; t18 = 0;
+        #1 t16 = 0; t17 = 1; t18 = 1;
+        #1 t16 = 1; t17 = 0; t18 = 0;
+        #1 t16 = 1; t17 = 0; t18 = 1;
+        #1 t16 = 1; t17 = 1; t18 = 0;
+        #1 t16 = 1; t17 = 1; t18 = 1;
+    end //Termina en  48
 
 //TESTBENCH MUX2:1
     initial 
-        #25 $finish;
+        #49 $finish;
 
     initial begin  
         $dumpfile("Mux_tb.vcd");

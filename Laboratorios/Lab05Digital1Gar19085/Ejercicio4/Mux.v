@@ -20,8 +20,8 @@ module Mux4x1(input wire   D0, D1, D2, D3,
     wire  low, hig;
 
     Mux2x1 lowmux(D0, D1, S0, low);
-    Mux2x1 higmux(D2, D3, S0, high);
-    Mux2x1 outmux(low, high, S1, Y);
+    Mux2x1 higmux(D2, D3, S0, hig);
+    Mux2x1 outmux(low, hig, S1, Y);
 
 endmodule //CIERRO MODULO
 
@@ -89,29 +89,56 @@ endmodule //CIERRO MODULO
         assign G = 0;
        
 
-    Mux8x1 M3(G, V, V, G, V, G, G, V, A, B, C, Y);
+    Mux8x1 M3(G, V, V, G, V, G, G, V, C, B, A, Y);
 
     endmodule
 
 
 //IMPLEMENTO TABLA 2 DEL MUX2:1
-  //  module M2x1Tabla02( input wire [1:0] B, C,
-  //                      input wire   A, 
-  //                      output wire [1:0] Y);
+  module M2x1Tabla02( input wire  A, B, C, 
+                      output wire Y);
+            wire O1, O2;
+            wire Not1, Not2, R3;
+        //compuertas
+            not (Not1, B);
+            not (Not2, C);
+            xnor (R3, Not2, B);
 
-//        Mux2x1  M1(A, B, C, Y);
+        assign O1 = Not1;
+        assign O2 = R3;
 
-//    endmodule 
+        Mux2x1  M1(O1, O2, A, Y);
+
+    endmodule 
 
 
 //IMPLEMENTO TABLA2 DEL MUX4:1
-//    module M4x1Tabla02();
+   module M4x1Tabla02(input wire A, B, C, 
+                      output wire Y);
+        wire O1;
+        wire Not1;
+        wire V, G;
+    //compuertas
+        not (Not1, C);
 
-//    endmodule
+        assign O1 = Not1;
+        assign V = 1;
+        assign V = 0;
+
+        Mux4x1 M42(V, G, V, O1, A, B, Y);
+
+   endmodule
 
 
 //IMPLEMENTO TABLA2 DEL MUX8:1
-//    module M8x1Tabla02();
+    module M8x1Tabla02(input wire A, B, C,
+                       output wire Y);
+        wire V, G;
 
-//    endmodule
+        assign V = 1;
+        assign G = 0;
+
+    Mux8x1 M34(V, V, G, G, V, V, V, G, C, B, A, Y);
+
+    endmodule
 
