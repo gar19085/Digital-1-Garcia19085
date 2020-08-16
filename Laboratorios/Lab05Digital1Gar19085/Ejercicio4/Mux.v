@@ -55,7 +55,7 @@ endmodule //CIERRO MODULO
         assign O1 = R1;
         assign O2 = R2;
 
-        Mux2x1  M1(O1, O2, A, Y);
+        Mux2x1  M2a11(O1, O2, A, Y);
 
     endmodule 
 
@@ -74,7 +74,7 @@ endmodule //CIERRO MODULO
         assign N2 = No1;
     
 
-        Mux4x1 M2(C, N1, N2, C, S, S1, Y);  
+        Mux4x1 M4a11(C, N1, N2, C, S, S1, Y);  
         
 
     endmodule
@@ -89,7 +89,7 @@ endmodule //CIERRO MODULO
         assign G = 0;
        
 
-    Mux8x1 M3(G, V, V, G, V, G, G, V, C, B, A, Y);
+    Mux8x1 M8a11(G, V, V, G, V, G, G, V, C, B, A, Y);
 
     endmodule
 
@@ -107,7 +107,7 @@ endmodule //CIERRO MODULO
         assign O1 = Not1;
         assign O2 = R3;
 
-        Mux2x1  M1(O1, O2, A, Y);
+        Mux2x1  M2a12(O1, O2, A, Y);
 
     endmodule 
 
@@ -125,7 +125,7 @@ endmodule //CIERRO MODULO
         assign V = 1;
         assign V = 0;
 
-        Mux4x1 M42(V, G, V, O1, A, B, Y);
+        Mux4x1 M4a12(V, G, V, O1, A, B, Y);
 
    endmodule
 
@@ -138,7 +138,7 @@ endmodule //CIERRO MODULO
         assign V = 1;
         assign G = 0;
 
-    Mux8x1 M34(V, V, G, G, V, V, V, G, C, B, A, Y);
+    Mux8x1 M8a12(V, V, G, G, V, V, V, G, C, B, A, Y);
 
     endmodule
 
