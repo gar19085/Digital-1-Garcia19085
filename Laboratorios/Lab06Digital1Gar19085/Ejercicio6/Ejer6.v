@@ -1,28 +1,55 @@
 //Implementación Ejercicios 1 y 3 
 
+
+module FFD (input clk, reset, d,
+            output q);
+        always @ (posedge clk or posedge reset)begin
+            if (reset) begin
+                q <= 1'b0;
+            end
+            else begin
+                q <= d;
+            end
+        end   
+endmodule
+
+
 //Ejercicio 1
 
-//Maquina de estados Finitos Mealy
+module Ejer1(input A, B, CLK, RESET,
+             output Y);
+        wire S0, S1, SF0, SF1;
 
+        assign SF0 = (~S1 & ~S0 & A);
+        assign SF1 = (S0 & B) | (S1 & A & B);
 
-module Mealy1(input clk, reset, a, b,
-              output Y);
-    typedef enum logic {S0, S1} statetype;
-    statetype state, nextstate;
+        FFD F1(CLK, RESET, SF0, S0);
+        FFD F1(CLK, RESET, SF1, S1);
 
-    always_ff @(posedge clk, posedge reset)
-    if (reset) state <= S0;
-    else       state <= nextstate;
+        assign Y = (S1 & ~S0 & A & B);
 
-    always_comb
-        case (state)
-        S0: if (a) nextstate = S0;
-            else   nextstate = S1;
-        S1: if (a) nextstate = S0;
-            else   nextstate = S1;
-        default:   nextstate = S0;
-        endcase
-
-        assign Y = (a & State == S1);
 endmodule
-             
+
+
+//Ejercicio 3
+
+module Ejer3(input A, clk, reset
+             output Y1, Y2, Y3);
+    wire S0, S1, S2, SF0, SF1, SF2;
+
+    assign SF0 = (S0 & ~S2 & ~A)|(S0 & S1 & A)|(S0 & ~S1 & S2)|(~S0 & S1 & S2 & ~A)|(~S0 & S1 & ~S2 ~A);
+    assign SF1 = (S1 & ~S2 & ~A) | (~S1 & ~S2 & A) | (S1 & S2 & A);
+    assign SF2 = ~S2;
+
+    FFD F0(clk, reset, SF0, S0);
+    FFD F1(clk, reset, SF1, S1);
+    FFD F2(clk, reset, SF2, S2);
+
+    assign Y1 = S0; 
+    assign Y2 = (S0 & ~S1) | (~S0 & S1);
+    assign Y3 = (S1 & ~S2) | (~S1 & S2);
+
+endmodule
+
+
+
