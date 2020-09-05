@@ -33,6 +33,7 @@ Ejer3 E3(A2, CLK, reset, Y1, Y2, Y3);
 
 
   initial begin
+        #9
         $display("\n");
         $display("Ejercicio 3");
         $display("CLK reset A2 Y1 Y2 Y3");
