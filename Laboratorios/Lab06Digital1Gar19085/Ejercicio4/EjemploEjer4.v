@@ -25,7 +25,6 @@ module fulladder(input logic a, b, cin,
 endmodule
 
 
-
 //Ejemplo Blocking
 module blocking(clk, a, c);
 input clk;
@@ -42,3 +41,5 @@ begin
 end
 
 endmodule
+
+//Fin del programa
