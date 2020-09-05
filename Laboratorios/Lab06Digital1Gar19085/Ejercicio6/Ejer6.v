@@ -33,11 +33,11 @@ endmodule
 
 //Ejercicio 3
 
-module Ejer3(input A, clk, reset
+module Ejer3(input A, clk, reset,
              output Y1, Y2, Y3);
     wire S0, S1, S2, SF0, SF1, SF2;
 
-    assign SF0 = (S0 & ~S2 & ~A)|(S0 & S1 & A)|(S0 & ~S1 & S2)|(~S0 & S1 & S2 & ~A)|(~S0 & S1 & ~S2 ~A);
+    assign SF0 = (S0 & ~S2 & ~A) | (S0 & S1 & A) | (S0 & ~S1 & S2) | (~S0 & S1 & S2 & ~A) | (~S0 & S1 & ~S2 ~A);
     assign SF1 = (S1 & ~S2 & ~A) | (~S1 & ~S2 & A) | (S1 & S2 & A);
     assign SF2 = ~S2;
 
