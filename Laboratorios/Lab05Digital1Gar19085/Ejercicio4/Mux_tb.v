@@ -49,7 +49,7 @@ module  TESTBENCH();
         $display("MUX4:1, Tabla 01");
         $display("A B C | Y");
         $display("------|---");
-        $monitor("%b %b %b | %b" t4, t5, t6, Pz2);
+        $monitor("%b %b %b | %b", t4, t5, t6, Pz2);
            t4 = 0; t5 = 0; t6 = 0;
         #1 t4 = 0; t5 = 0; t6 = 1;
         #1 t4 = 0; t5 = 1; t6 = 0;
