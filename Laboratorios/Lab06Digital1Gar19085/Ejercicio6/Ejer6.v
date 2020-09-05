@@ -2,7 +2,7 @@
 
 
 module FFD (input clk, reset, d,
-            output q);
+            output reg q);
         always @ (posedge clk or posedge reset)begin
             if (reset) begin
                 q <= 1'b0;
@@ -24,7 +24,7 @@ module Ejer1(input A, B, CLK, RESET,
         assign SF1 = (S0 & B) | (S1 & A & B);
 
         FFD F1(CLK, RESET, SF0, S0);
-        FFD F1(CLK, RESET, SF1, S1);
+        FFD F2(CLK, RESET, SF1, S1);
 
         assign Y = (S1 & ~S0 & A & B);
 
@@ -37,7 +37,7 @@ module Ejer3(input A, clk, reset,
              output Y1, Y2, Y3);
     wire S0, S1, S2, SF0, SF1, SF2;
 
-    assign SF0 = (S0 & ~S2 & ~A) | (S0 & S1 & A) | (S0 & ~S1 & S2) | (~S0 & S1 & S2 & ~A) | (~S0 & S1 & ~S2 ~A);
+    assign SF0 = (S0 & ~S2 & ~A) | (S0 & S1 & A) | (S0 & ~S1 & S2) | (~S0 & S1 & S2 & ~A) | (~S0 & S1 & ~S2 & ~A);  
     assign SF1 = (S1 & ~S2 & ~A) | (~S1 & ~S2 & A) | (S1 & S2 & A);
     assign SF2 = ~S2;
 

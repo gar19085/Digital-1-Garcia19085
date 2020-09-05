@@ -36,7 +36,7 @@ Ejer3 E3(A2, CLK, reset, Y1, Y2, Y3);
         $display("\n");
         $display("Ejercicio 3");
         $display("CLK reset A2 Y1 Y2 Y3");
-        $monitor("%b %b %b %b %b", CLK, reset, A2, Y1, Y2, Y3);
+        $monitor("%b %b %b %b %b %b", CLK, reset, A2, Y1, Y2, Y3);
             reset = 1; A2 = 1;
         #8 A2 = 1; reset = 0;
         #2 A2 = 0;
@@ -47,7 +47,7 @@ Ejer3 E3(A2, CLK, reset, Y1, Y2, Y3);
         #25 $finish;
 
         initial begin
-            $dumpfile("Ejer6.vcd");
+            $dumpfile("Ejer6_tb.vcd");
             $dumpvars(0, testbench);
         end
 endmodule
