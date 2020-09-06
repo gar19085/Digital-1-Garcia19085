@@ -1,5 +1,5 @@
 $date
-	Sat Sep 05 20:09:38 2020
+	Sat Sep 05 20:53:23 2020
 $end
 $version
 	Icarus Verilog
@@ -51,46 +51,44 @@ $var wire 1 * A $end
 $var wire 1 4 SF0 $end
 $var wire 1 5 SF1 $end
 $var wire 1 6 SF2 $end
-$var wire 1 7 Y1 $end
-$var wire 1 8 Y2 $end
-$var wire 1 # Y3 $end
+$var wire 1 # Y1 $end
+$var wire 1 " Y2 $end
+$var wire 1 ! Y3 $end
 $var wire 1 , clk $end
 $var wire 1 - reset $end
-$var wire 3 9 SF3 [2:0] $end
-$var wire 3 : S3 [2:0] $end
-$var wire 1 ; S2 $end
-$var wire 1 < S1 $end
-$var wire 1 = S0 $end
+$var wire 3 7 SF3 [2:0] $end
+$var wire 3 8 S3 [2:0] $end
+$var wire 1 9 S2 $end
+$var wire 1 : S1 $end
+$var wire 1 ; S0 $end
 $scope module F0 $end
 $var wire 1 , clk $end
 $var wire 1 4 d $end
 $var wire 1 - reset $end
-$var reg 1 = q $end
+$var reg 1 ; q $end
 $upscope $end
 $scope module F1 $end
 $var wire 1 , clk $end
 $var wire 1 5 d $end
 $var wire 1 - reset $end
-$var reg 1 < q $end
+$var reg 1 : q $end
 $upscope $end
 $scope module F2 $end
 $var wire 1 , clk $end
 $var wire 1 6 d $end
 $var wire 1 - reset $end
-$var reg 1 ; q $end
+$var reg 1 9 q $end
 $upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-x=
-x<
 x;
-bx :
-bx 9
-x8
-x7
+x:
+x9
+bx 8
+bx 7
 x6
 x5
 x4
@@ -106,9 +104,9 @@ b0 0
 x*
 0)
 b0 (
-b0x '
+bx '
 bx &
-b0x %
+bx %
 0$
 x#
 x"
@@ -116,23 +114,21 @@ x!
 $end
 #1
 04
-b0 %
-08
-0#
-1"
+0"
 0!
-b0x1 9
+b0x1 '
+b0x1 7
 16
 03
 b0 &
 b0 1
 02
-b0 '
-07
-0=
-0<
-b0 :
+0#
 0;
+0:
+b0 %
+b0 8
+09
 1,
 1-
 #2
@@ -152,148 +148,217 @@ b0 0
 0)
 1-
 #4
-0-
 0,
+b10 (
+b10 0
+1.
+1+
+1)
+0-
 #5
-x4
-b0x %
-x8
-x#
-0"
-1!
-bx0 9
-06
-x<
-b0x1 :
-1;
+b0 (
+b0 0
+0.
+0+
+0)
+1-
 1,
 #6
-0,
-#7
-x5
-1"
-0!
-bx1 9
-16
-0;
-bx0 :
-b0x '
-x7
-x=
-1,
-#8
-0,
-#9
-04
-b11 9
-15
-0#
-b0 %
-08
-b0 '
-07
-0=
-b0 :
-0<
-1,
-1*
-1-
-#10
 0-
 0,
-#11
-b1 %
-18
-0#
-0"
-1!
-b10 9
+#7
+x4
+x!
+x"
+bx0 '
+bx0 7
 06
-1<
-b11 :
-1;
+19
+b0x1 %
+b0x1 8
+x:
 1,
-#12
-0,
-#13
-1#
-05
-1"
+#8
+15
+0"
 0!
-b1 9
 16
-b10 :
-0;
-1,
-#14
-0,
-#15
-1#
+0:
 b0 %
-08
-0"
+b0 8
+09
+0,
+b11 '
+b11 7
+04
+1*
+0-
+#9
 1!
-b0 9
 06
-0<
-b1 :
-1;
+b1 %
+b1 8
+19
+1,
+b0 '
+b0 7
+05
+0*
+#10
+15
+0!
+b11 '
+b11 7
+16
+b0 %
+b0 8
+09
+0-
+1*
+0,
+#11
+1!
+06
+b1 %
+b1 8
+19
+1,
+b0 '
+b0 7
+05
+0*
+#12
+15
+0!
+b11 '
+b11 7
+16
+b0 %
+b0 8
+09
+0,
+0-
+1*
+#13
+1!
+06
+b1 %
+b1 8
+19
+1,
+b0 '
+b0 7
+05
+0*
+#14
+15
+0!
+b11 '
+b11 7
+16
+b0 %
+b0 8
+09
+0,
+0-
+1*
+#15
+14
+0!
+1"
+06
+19
+b11 %
+b11 8
+1:
+b100 '
+b100 7
+05
+0*
 1,
 #16
-0,
-#17
-15
-0#
-1"
-0!
-b11 9
+0"
 16
-b0 :
-0;
+0:
+b0 %
+b0 8
+09
+0,
+04
+b11 '
+b11 7
+15
+0-
+1*
+#17
+0!
+1"
+b10 '
+b10 7
+06
+19
+b11 %
+b11 8
+1:
 1,
 #18
 0,
 #19
-1#
-0"
 1!
-06
-b1 :
-1;
-1,
-b0 9
 05
-0*
+b1 '
+b1 7
+16
+b10 %
+b10 8
+09
+1,
 #20
 0,
 #21
-0#
-1"
-0!
-b1 9
-16
-b0 :
-0;
+0"
+b0 '
+b0 7
+06
+19
+b1 %
+b1 8
+0:
 1,
 #22
 0,
 #23
-1#
-0"
-1!
-b0 9
-06
-b1 :
-1;
+15
+0!
+b11 '
+b11 7
+16
+b0 %
+b0 8
+09
 1,
 #24
 0,
 #25
-0#
-1"
 0!
-b1 9
+1"
+b10 '
+b10 7
+06
+19
+b11 %
+b11 8
+1:
+1,
+#26
+0,
+#27
+1!
+05
+b1 '
+b1 7
 16
-b0 :
-0;
+b10 %
+b10 8
+09
 1,

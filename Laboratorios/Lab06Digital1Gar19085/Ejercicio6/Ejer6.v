@@ -26,9 +26,9 @@ module Ejer1(input A, B, CLK, RESET,
         FFD F1(CLK, RESET, SF0, S0);
         FFD F2(CLK, RESET, SF1, S1);
 
-        assign Y = (S1 & ~S0 & A & B);
         assign S2 = {S0, S1};
         assign SF2 = {SF0, SF1};
+        assign Y = (S1 & ~S0 & A & B);
 
 endmodule
 
@@ -48,11 +48,12 @@ module Ejer3(input A, clk, reset,
     FFD F1(clk, reset, SF1, S1);
     FFD F2(clk, reset, SF2, S2);
 
+    assign S3= {S0, S1, S2};
+    assign SF3 = {SF0, SF1, SF2};
     assign Y1 = S0; 
     assign Y2 = (S0 & ~S1) | (~S0 & S1);
     assign Y3 = (S1 & ~S2) | (~S1 & S2);
-    assign S3= {S0, S1, S2};
-    assign SF3 = {SF0, SF1, SF2};
+
 
 endmodule
 

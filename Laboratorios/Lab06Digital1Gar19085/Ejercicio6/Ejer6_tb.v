@@ -8,6 +8,9 @@ module testbench();
     reg A, B, A2;
     wire [1:0] SF, SP;
     wire [2:0] SF2, SP2;
+    wire Y, Y1, Y2, Y3;
+  
+  
         
         always 
             begin 
@@ -15,7 +18,7 @@ module testbench();
             end
 
 Ejer1 E1(A, B, CLK, reset, Y, SF, SP);
-Ejer3 E3(A2, CLK, reset, SF2, SP2, Y1, Y2, Y3);
+Ejer3 E3(A2, CLK, reset, Y1, Y2, Y3, SF2, SP2);
 
   initial begin
         $display("\n");
@@ -26,27 +29,42 @@ Ejer3 E3(A2, CLK, reset, SF2, SP2, Y1, Y2, Y3);
         #1   reset = 1; 
         #1   reset = 0; A = 1; B = 1; 
         #1   reset = 1; A = 0; B = 0; 
+        #1   reset = 0; A = 1; B = 1; 
+        #1   reset = 1; A = 0; B = 0; 
     end
 
 
 
   initial begin
-        #9
+        #8
         $display("\n");
         $display("Ejercicio 3");
         $display("reset A2  SF2 SP2 Y1 Y2 Y3");
         $monitor("%b %b %b %b %b %b", reset, A2, SF2, SP2, Y1, Y2, Y3);
-            reset = 1; A2 = 1;
-        #8 A2 = 1; reset = 0;
-        #2 A2 = 0;
-        
+           CLK = 1; reset = 1; A2 = 0;
+        #1 A2 = 1; reset = 1;   
+        #1 A2 = 0; reset = 0;
+        #1 A2 = 1; reset = 1;
+        #1 A2 = 0; reset = 0;
+        #1 A2 = 1; reset = 1;
+        #1 A2 = 0; reset = 0;
+        #1 A2 = 1; reset = 1;
+        #1 A2 = 0; reset = 0;
+        #1 A2 = 1; reset = 1;
+        #1 A2 = 0; reset = 0;
+        #1 A2 = 1; reset = 1;
+        #1 A2 = 0; reset = 0;
+        #1 A2 = 1; reset = 1;
+        #1 A2 = 0; reset = 0;
+        #1 A2 = 1; reset = 1;
+               
     end
 
     always 
         #5 CLK = ~CLK;
 
     initial 
-        #25 $finish;
+        #27 $finish;
 
         initial begin
             $dumpfile("Ejer6_tb.vcd");
