@@ -40,24 +40,11 @@ Ejer3 E3(A2, CLK, reset, Y1, Y2, Y3, SF2, SP2);
         $display("\n");
         $display("Ejercicio 3");
         $display("reset A2  SF2 SP2 Y1 Y2 Y3");
-        $monitor("%b %b %b %b %b %b", reset, A2, SF2, SP2, Y1, Y2, Y3);
-           CLK = 1; reset = 1; A2 = 0;
-        #1 A2 = 1; reset = 1;   
-        #1 A2 = 0; reset = 0;
-        #1 A2 = 1; reset = 1;
-        #1 A2 = 0; reset = 0;
-        #1 A2 = 1; reset = 1;
-        #1 A2 = 0; reset = 0;
-        #1 A2 = 1; reset = 1;
-        #1 A2 = 0; reset = 0;
-        #1 A2 = 1; reset = 1;
-        #1 A2 = 0; reset = 0;
-        #1 A2 = 1; reset = 1;
-        #1 A2 = 0; reset = 0;
-        #1 A2 = 1; reset = 1;
-        #1 A2 = 0; reset = 0;
-        #1 A2 = 1; reset = 1;
-               
+        $monitor("%b %b %b %b %b %b %b", reset, A2, SF2, SP2, Y1, Y2, Y3);
+           CLK = 1; reset = 0; A2 = 1;
+        #8 A2 = 1; reset = 1;
+        #2 A2 = 0;
+        
     end
 
     always 

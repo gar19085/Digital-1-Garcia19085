@@ -1,21 +1,25 @@
 //Implementación de Flip Flop D
 
 //Rodrigo García
-//D Flip Flop Reset asíncrono y Set Sincrono
-module DFFRASSS();
-    reg clk, reset, preset, d;
+//D Flip Flop Reset asíncrono
+module DFFRA();
+    reg clk, reset, set, d;
     reg q;
 
    always @ (posedge clk or posedge reset)
    if (reset) begin
      q <= 0;
-   end else if (preset) begin
+   end else if (set) begin
     q <= 1;
   end else begin
     q <= d;
   end
 
+
+
 //Testbench del codigo 
+
+
 
 initial begin
 
@@ -40,3 +44,5 @@ initial begin
   
 
 endmodule
+
+
