@@ -9,7 +9,6 @@
  
 //Ejemplo de Non-Blocking
 
-
 module fulladder(input logic a, b, cin,
                  output logic s, cout);
     logic p, g;
