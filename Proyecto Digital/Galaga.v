@@ -70,7 +70,7 @@ endmodule
 
 //ECUACIONES FSM JUEGO
 module juego(input wire M, DP1, DP2, A2, A1,
-            output wire P1A, P1B, P1C, P2A, P2B, P2C, DONE);
+            output wire P1A, P1B, P1C, P2A, P2B, P2C, DONE, output wire [2:0] P1, P2);
         wire  SJ3, SJ2, SJ1, SJ0, SJF3, SJF2, SJF1, SJF0;  
 
     assign SJF3 = (SJ3 & ~M)  | (SJ3 & DP1)  | (SJ3 & ~DP2)  | (SJ3 & ~A1)  | (SJ2 & M & ~DP1 & DP2 & A1) | (~SJ2 & SJ1 & SJ0 & M & DP1 & ~DP2 & A2) | (SJ2 & ~SJ1 & SJ0 & M & DP1 & ~DP2 & A2) | (SJ2 & SJ1 & ~SJ0 & M & DP1 & ~DP2 & A2);
@@ -90,4 +90,18 @@ module juego(input wire M, DP1, DP2, A2, A1,
     FFD Ju10(CLK, RST, SJF2, SJ2);
     FFD Ju11(CLK, RST, SJF3, SJ3);
 
+    assign P1 = {P1A, P1B, P1C};
+    assign P2 = {P2A, P2B, P2C};
+
 endmodule
+
+
+
+module GALAGA();
+    FSMN1 ();
+    FSMN2 ();
+    posicion ();
+    Armor ();
+    juego ();
+endmodule    
+
