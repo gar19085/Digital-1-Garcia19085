@@ -14,7 +14,7 @@ endmodule
 
 //ECUACIONES FSM DE LA NAVE 1
 module FSMN1 (input wire LEFT, RIGHT, CLK, RST,
-            output L, C, R, output [1:0] SP, SFP);
+            output L, C, R);
     wire SB1, SB0, SBF1, SBF0;
 
     assign L = (SB0 & LEFT)  | (SB0 & ~RIGHT) | (~SB1 & LEFT & ~RIGHT);
@@ -25,9 +25,6 @@ module FSMN1 (input wire LEFT, RIGHT, CLK, RST,
 
     FFD JuI(CLK, RST, SBF0, SB0);
     FFD JuII(CLK, RST, SBF1, SB1);
-
-    assign SP = {SB1, SB0};
-    assign SFP = {SBF1, SBF0};
 
 endmodule
 
@@ -47,37 +44,21 @@ module FSMN2 (input wire LEFT2, RIGHT2, CLK, RST,
 endmodule
 
 //ECUACIONES SECCIÓN DE PPOSICIÓN
-module posicion(input L, C, R, L2, C2, R2, output MP);
-    wire CLK, RST; 
-    wire [1:0]SP, SFP;
-    wire LEFT, RIGHT, LEFT2, RIGHT2;
-    wire Lr, Cr, Rr; 
-    wire Lr2, Cr2, Rr2;
+module posicion(input wire L, C, R, L2, C2, R2, output MP);
 
-    assign L = Lr;
-    assign C = Cr;
-    assign R = Rr;
-    assign L2 = Lr2;
-    assign C2 = Cr2;
-    assign R2 = Rr2;
-
-
-    FSMN1 M1(CLK, RST, LEFT, RIGHT, L, C, R, SP, SFP);
-    FSMN2 M2(CLK, RST, LEFT2, RIGHT2, L2, C2, R2);
-    
     assign MP = (~L & ~C & R & ~L2 & ~C2 & R2) | (~L & C & ~R & ~L2 & C2 & ~R2) | (L & ~C & ~R & L2 & ~C2 & ~R2);            
 
 endmodule
 
 //ECUACIONES FSM ARMADURA
-module Armor(input wire M, DP1, DP2, 
+module Armor(input wire M, MP1, MP2, CLK, RST,
             output wire A2, A1);
         wire SA2, SA1, SAF2, SAF1;     
 
-    assign SAF2 = (SA2)  | (M & DP1 & ~DP2);
-    assign SAF1 = (SA1) | (M & ~DP1 & DP2);
-    assign A2 = (SA1) | (M & ~DP1 & DP2);
-    assign A1 = (SA2)  | (M & DP1 & ~DP2);
+    assign SAF2 = (SA2)  | (M & MP1 & ~MP2);
+    assign SAF1 = (SA1) | (M & ~MP1 & MP2);
+    assign A2 = (SA1) | (M & ~MP1 & MP2);
+    assign A1 = (SA2)  | (M & MP1 & ~MP2);
 
     FFD Ju6(CLK, RST, SAF1, SA1);
     FFD Ju7(CLK, RST, SAF2, SA2);
@@ -85,8 +66,8 @@ module Armor(input wire M, DP1, DP2,
 endmodule
 
 //ECUACIONES FSM JUEGO
-module juego(input wire M, DP1, DP2, A2, A1,
-            output wire P1A, P1B, P1C, P2A, P2B, P2C, DONE, output wire [2:0] P1, P2);
+module juego(input wire M, DP1, DP2, A2, A1, CLK, RST,
+            output wire P1A, P1B, P1C, P2A, P2B, P2C, DONE);
         wire  SJ3, SJ2, SJ1, SJ0, SJF3, SJF2, SJF1, SJF0;  
 
     assign SJF3 = (SJ3 & ~M)  | (SJ3 & DP1)  | (SJ3 & ~DP2)  | (SJ3 & ~A1)  | (SJ2 & M & ~DP1 & DP2 & A1) | (~SJ2 & SJ1 & SJ0 & M & DP1 & ~DP2 & A2) | (SJ2 & ~SJ1 & SJ0 & M & DP1 & ~DP2 & A2) | (SJ2 & SJ1 & ~SJ0 & M & DP1 & ~DP2 & A2);
@@ -97,7 +78,7 @@ module juego(input wire M, DP1, DP2, A2, A1,
     assign P1B = (SJ2 & SJ1) | (SJ2 & ~SJ0) | (SJ3 & M & ~DP1 & DP2 & A1) | (~SJ2 & SJ0 & M & ~DP1 & DP2 & A1);
     assign P1C = (SJ2 & SJ1 & M & ~DP1 & DP2 & A1) | (SJ2 & ~SJ0 & M & ~DP1 & DP2 & A1);
     assign P2A = (SJ3) | (SJ1) | (SJ2 & SJ0) | (M & DP1 & ~DP2 & A2);
-    assign P2B = (SJ3)  | (SJ2 & ~SJ1 & SJ0) | (SJ2 & SJ1 & ~SJ0) | (SJ1 & M & DP1 & ~DP2 & A2);
+    assign P2B = (SJ3) | (SJ2 & ~SJ1 & SJ0) | (SJ2 & SJ1 & ~SJ0) | (SJ1 & M & DP1 & ~DP2 & A2);
     assign P2C = (SJ3 & M & DP1 & ~DP2 & A1) | (SJ2 & ~SJ1 & SJ0 & M & DP1 & ~DP2 & A2) | (SJ2 & SJ1 & ~SJ0 & M & DP1 & ~DP2 & A2);
     assign DONE = (SJ3 & M & DP1 & ~DP2 & A1)  | (SJ2 & SJ1 & M & ~DP1 & DP2 & A1) | (SJ2 & ~SJ0 & M & ~DP1 & DP2 & A1) | (SJ2 & ~SJ1 & SJ0 & M & DP1 & ~DP2 & A2)| (SJ2 & SJ1 & ~SJ0 & M & DP1 & ~DP2 & A2);
 
@@ -106,17 +87,17 @@ module juego(input wire M, DP1, DP2, A2, A1,
     FFD Ju10(CLK, RST, SJF2, SJ2);
     FFD Ju11(CLK, RST, SJF3, SJ3);
 
-    assign P1 = {P1A, P1B, P1C};
-    assign P2 = {P2A, P2B, P2C};
-
 endmodule
 
 
-//module GALAGA(input wire LEFT, RIGHT, DP1, DP2, output wire P1A, P1B, P1C, P2A, P2B, P2C, DONE);
-//    FSMN1     T1();
- //   FSMN2     TH();
-//    posicion  TE();
-//    Armor     T2();
-//    juego     T2E();
-//endmodule    
+module GALAGA(input wire LEFT, RIGHT, LEFT2, RIGHT2, DP1, DP2, CLK, RST, 
+                output P1A, P1B, P1C, P2A, P2B, P2C, DONE);
+        wire L, C, R, L2, C2, R2, M, A1, A2;
+
+        FSMN1       J1(LEFT, RIGHT, CLK, RST, L, C, R);
+        FSMN2       J2(LEFT2, RIGHT2, CLK, RST, L2, C2, R2);
+        posicion    POS3(L, C, R, L2, C2, R2, M);
+        Armor       AR(M, DP1, DP2,  CLK, RST, A2, A1);
+        juego       GAL(M, DP1, DP2, A2, A1, CLK, RST, P1A, P1B, P1C, P2A, P2B, P2C, DONE);
+endmodule    
 

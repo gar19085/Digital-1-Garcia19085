@@ -1,5 +1,5 @@
 $date
-	Sun Oct 11 14:06:42 2020
+	Sun Oct 11 18:51:05 2020
 $end
 $version
 	Icarus Verilog
@@ -8,657 +8,400 @@ $timescale
 	1ps
 $end
 $scope module testbench $end
-$var wire 1 ! Cr $end
-$var wire 1 " Cr2 $end
-$var wire 1 # L2r $end
-$var wire 1 $ Lr $end
-$var wire 1 % Rr $end
-$var wire 1 & Rr2 $end
-$var wire 2 ' SP [1:0] $end
-$var wire 2 ( SFP [1:0] $end
-$var wire 1 ) R2 $end
-$var wire 1 * R $end
-$var wire 1 + MP $end
-$var wire 1 , L2 $end
-$var wire 1 - L $end
-$var wire 1 . C2 $end
-$var wire 1 / C $end
-$var reg 1 0 CLK $end
-$var reg 1 1 LEFT $end
-$var reg 1 2 LEFT2 $end
-$var reg 1 3 RIGHT $end
-$var reg 1 4 RIGHT2 $end
-$var reg 1 5 RST $end
-$scope module C1 $end
-$var wire 1 ! C $end
-$var wire 1 " C2 $end
-$var wire 1 6 CLK $end
-$var wire 1 7 Cr $end
-$var wire 1 8 Cr2 $end
-$var wire 1 $ L $end
-$var wire 1 # L2 $end
-$var wire 1 9 LEFT $end
-$var wire 1 : LEFT2 $end
-$var wire 1 ; Lr $end
-$var wire 1 < Lr2 $end
-$var wire 1 + MP $end
-$var wire 1 % R $end
-$var wire 1 & R2 $end
-$var wire 1 = RIGHT $end
-$var wire 1 > RIGHT2 $end
-$var wire 1 ? RST $end
-$var wire 1 @ Rr $end
-$var wire 1 A Rr2 $end
-$var wire 2 B SP [1:0] $end
-$var wire 2 C SFP [1:0] $end
-$scope module M1 $end
-$var wire 1 ! C $end
-$var wire 1 9 CLK $end
-$var wire 1 $ L $end
-$var wire 1 6 LEFT $end
-$var wire 1 % R $end
-$var wire 1 ? RIGHT $end
-$var wire 1 = RST $end
-$var wire 1 D SBF0 $end
-$var wire 1 E SBF1 $end
-$var wire 2 F SP [1:0] $end
-$var wire 2 G SFP [1:0] $end
-$var wire 1 H SB1 $end
-$var wire 1 I SB0 $end
-$scope module JuI $end
-$var wire 1 9 CLK $end
-$var wire 1 D D $end
-$var wire 1 = RST $end
-$var reg 1 I Q $end
+$var wire 1 ! P2C $end
+$var wire 1 " P2B $end
+$var wire 1 # P2A $end
+$var wire 1 $ P1C $end
+$var wire 1 % P1B $end
+$var wire 1 & P1A $end
+$var wire 1 ' DONE $end
+$var reg 1 ( CLK $end
+$var reg 1 ) DP1 $end
+$var reg 1 * DP2 $end
+$var reg 1 + LEFT $end
+$var reg 1 , LEFT2 $end
+$var reg 1 - RIGHT $end
+$var reg 1 . RIGHT2 $end
+$var reg 1 / RST $end
+$scope module retro $end
+$var wire 1 ( CLK $end
+$var wire 1 ) DP1 $end
+$var wire 1 * DP2 $end
+$var wire 1 + LEFT $end
+$var wire 1 , LEFT2 $end
+$var wire 1 - RIGHT $end
+$var wire 1 . RIGHT2 $end
+$var wire 1 / RST $end
+$var wire 1 0 R2 $end
+$var wire 1 1 R $end
+$var wire 1 ! P2C $end
+$var wire 1 " P2B $end
+$var wire 1 # P2A $end
+$var wire 1 $ P1C $end
+$var wire 1 % P1B $end
+$var wire 1 & P1A $end
+$var wire 1 2 M $end
+$var wire 1 3 L2 $end
+$var wire 1 4 L $end
+$var wire 1 ' DONE $end
+$var wire 1 5 C2 $end
+$var wire 1 6 C $end
+$var wire 1 7 A2 $end
+$var wire 1 8 A1 $end
+$scope module AR $end
+$var wire 1 8 A1 $end
+$var wire 1 7 A2 $end
+$var wire 1 ( CLK $end
+$var wire 1 ) MP1 $end
+$var wire 1 * MP2 $end
+$var wire 1 / RST $end
+$var wire 1 9 SAF1 $end
+$var wire 1 : SAF2 $end
+$var wire 1 ; SA2 $end
+$var wire 1 < SA1 $end
+$var wire 1 2 M $end
+$scope module Ju6 $end
+$var wire 1 ( CLK $end
+$var wire 1 9 D $end
+$var wire 1 / RST $end
+$var reg 1 < Q $end
 $upscope $end
-$scope module JuII $end
-$var wire 1 9 CLK $end
-$var wire 1 E D $end
-$var wire 1 = RST $end
-$var reg 1 H Q $end
+$scope module Ju7 $end
+$var wire 1 ( CLK $end
+$var wire 1 : D $end
+$var wire 1 / RST $end
+$var reg 1 ; Q $end
 $upscope $end
 $upscope $end
-$scope module M2 $end
-$var wire 1 " C2 $end
-$var wire 1 : CLK $end
-$var wire 1 # L2 $end
-$var wire 1 6 LEFT2 $end
-$var wire 1 & R2 $end
-$var wire 1 ? RIGHT2 $end
-$var wire 1 > RST $end
-$var wire 1 J SBF2 $end
-$var wire 1 K SBF4 $end
-$var wire 1 L SB4 $end
-$var wire 1 M SB2 $end
-$scope module Ju3 $end
-$var wire 1 : CLK $end
-$var wire 1 K D $end
-$var wire 1 > RST $end
-$var reg 1 L Q $end
+$scope module GAL $end
+$var wire 1 8 A1 $end
+$var wire 1 7 A2 $end
+$var wire 1 ( CLK $end
+$var wire 1 ' DONE $end
+$var wire 1 ) DP1 $end
+$var wire 1 * DP2 $end
+$var wire 1 & P1A $end
+$var wire 1 % P1B $end
+$var wire 1 $ P1C $end
+$var wire 1 # P2A $end
+$var wire 1 " P2B $end
+$var wire 1 ! P2C $end
+$var wire 1 / RST $end
+$var wire 1 = SJF0 $end
+$var wire 1 > SJF1 $end
+$var wire 1 ? SJF2 $end
+$var wire 1 @ SJF3 $end
+$var wire 1 A SJ3 $end
+$var wire 1 B SJ2 $end
+$var wire 1 C SJ1 $end
+$var wire 1 D SJ0 $end
+$var wire 1 2 M $end
+$scope module Ju10 $end
+$var wire 1 ( CLK $end
+$var wire 1 ? D $end
+$var wire 1 / RST $end
+$var reg 1 B Q $end
 $upscope $end
-$scope module Ju4 $end
-$var wire 1 : CLK $end
-$var wire 1 J D $end
-$var wire 1 > RST $end
-$var reg 1 M Q $end
+$scope module Ju11 $end
+$var wire 1 ( CLK $end
+$var wire 1 @ D $end
+$var wire 1 / RST $end
+$var reg 1 A Q $end
 $upscope $end
+$scope module Ju8 $end
+$var wire 1 ( CLK $end
+$var wire 1 = D $end
+$var wire 1 / RST $end
+$var reg 1 D Q $end
+$upscope $end
+$scope module Ju9 $end
+$var wire 1 ( CLK $end
+$var wire 1 > D $end
+$var wire 1 / RST $end
+$var reg 1 C Q $end
 $upscope $end
 $upscope $end
 $scope module J1 $end
-$var wire 1 / C $end
-$var wire 1 0 CLK $end
-$var wire 1 - L $end
-$var wire 1 1 LEFT $end
-$var wire 1 * R $end
-$var wire 1 3 RIGHT $end
-$var wire 1 5 RST $end
-$var wire 1 N SBF0 $end
-$var wire 1 O SBF1 $end
-$var wire 2 P SP [1:0] $end
-$var wire 2 Q SFP [1:0] $end
-$var wire 1 R SB1 $end
-$var wire 1 S SB0 $end
+$var wire 1 6 C $end
+$var wire 1 ( CLK $end
+$var wire 1 4 L $end
+$var wire 1 + LEFT $end
+$var wire 1 1 R $end
+$var wire 1 - RIGHT $end
+$var wire 1 / RST $end
+$var wire 1 E SBF0 $end
+$var wire 1 F SBF1 $end
+$var wire 1 G SB1 $end
+$var wire 1 H SB0 $end
 $scope module JuI $end
-$var wire 1 0 CLK $end
-$var wire 1 N D $end
-$var wire 1 5 RST $end
-$var reg 1 S Q $end
+$var wire 1 ( CLK $end
+$var wire 1 E D $end
+$var wire 1 / RST $end
+$var reg 1 H Q $end
 $upscope $end
 $scope module JuII $end
-$var wire 1 0 CLK $end
-$var wire 1 O D $end
-$var wire 1 5 RST $end
-$var reg 1 R Q $end
+$var wire 1 ( CLK $end
+$var wire 1 F D $end
+$var wire 1 / RST $end
+$var reg 1 G Q $end
 $upscope $end
 $upscope $end
 $scope module J2 $end
-$var wire 1 . C2 $end
-$var wire 1 0 CLK $end
-$var wire 1 , L2 $end
-$var wire 1 2 LEFT2 $end
-$var wire 1 ) R2 $end
-$var wire 1 4 RIGHT2 $end
-$var wire 1 5 RST $end
-$var wire 1 T SBF2 $end
-$var wire 1 U SBF4 $end
-$var wire 1 V SB4 $end
-$var wire 1 W SB2 $end
+$var wire 1 5 C2 $end
+$var wire 1 ( CLK $end
+$var wire 1 3 L2 $end
+$var wire 1 , LEFT2 $end
+$var wire 1 0 R2 $end
+$var wire 1 . RIGHT2 $end
+$var wire 1 / RST $end
+$var wire 1 I SBF2 $end
+$var wire 1 J SBF4 $end
+$var wire 1 K SB4 $end
+$var wire 1 L SB2 $end
 $scope module Ju3 $end
-$var wire 1 0 CLK $end
-$var wire 1 U D $end
-$var wire 1 5 RST $end
-$var reg 1 V Q $end
+$var wire 1 ( CLK $end
+$var wire 1 J D $end
+$var wire 1 / RST $end
+$var reg 1 K Q $end
 $upscope $end
 $scope module Ju4 $end
-$var wire 1 0 CLK $end
-$var wire 1 T D $end
-$var wire 1 5 RST $end
-$var reg 1 W Q $end
+$var wire 1 ( CLK $end
+$var wire 1 I D $end
+$var wire 1 / RST $end
+$var reg 1 L Q $end
+$upscope $end
+$upscope $end
+$scope module POS3 $end
+$var wire 1 6 C $end
+$var wire 1 5 C2 $end
+$var wire 1 4 L $end
+$var wire 1 3 L2 $end
+$var wire 1 2 MP $end
+$var wire 1 1 R $end
+$var wire 1 0 R2 $end
 $upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-xW
-xV
-xU
-xT
-xS
-xR
-bx Q
-bx P
-xO
-xN
-xM
 xL
 xK
 xJ
 xI
 xH
-bx G
-bx F
+xG
+xF
 xE
 xD
-bx C
-bx B
-zA
-z@
-z?
-z>
-z=
-z<
-z;
-z:
-z9
-z8
-z7
-z6
-05
-04
-03
-02
-01
-00
-x/
-x.
-x-
-x,
-x+
-x*
-x)
-bx (
-bx '
+xC
+xB
+xA
+x@
+x?
+x>
+x=
+x<
+x;
+x:
+x9
+x8
+x7
+x6
+x5
+x4
+x3
+x2
+x1
+x0
+0/
+0.
+0-
+0,
+0+
+0*
+0)
+0(
+0'
 x&
 x%
-x$
+0$
 x#
 x"
-x!
+0!
 $end
 #1
-1/
-1.
-0N
-0-
-b0 (
-b0 Q
-0O
-0*
-0U
-0)
-0T
-0,
-0S
-b0 '
-b0 P
-0R
-0V
-0W
-10
+0=
+12
+0>
+0?
+0@
+16
 15
+0&
+0"
+0%
+0E
+04
+0F
+01
+0J
+00
+0I
+03
+0#
+07
+09
+08
+0:
+0H
+0G
+0K
+0L
+0<
+0;
+0D
+0C
+0B
+0A
+1(
+1/
 #2
-00
-05
+0(
+0/
 #3
+02
+06
+05
+14
+1E
 10
+1J
+1(
+1.
+1+
 #4
+07
+09
+02
+16
+13
+1I
+04
+0E
 00
-#5
-10
-#6
-00
-#7
-b10 '
-b10 P
-1R
-1W
-10
+0J
+0(
+1*
 0.
 1,
-1T
-0/
-1*
-b10 (
-b10 Q
-1O
-12
+0+
+#5
+1L
+05
 13
-#8
-00
-#9
-10
-#10
-00
-#11
-10
-#12
-00
-02
-#13
-10
-#14
-00
-#15
-10
-#16
-00
-#17
-1U
+1I
+06
+11
+1F
+1(
+0*
 1)
-0W
-10
 0,
-0.
-0T
-14
-03
-#18
-00
-#19
-1V
-10
-#20
-00
-#21
-10
-#22
-00
+1-
+#6
+16
+01
+0F
+0(
+1,
+0-
+#7
+1(
+1*
+0)
+0,
+#8
 12
-13
-#23
-10
-#24
-00
-#25
-10
-#26
-00
-#27
-10
-#28
-00
-#29
-10
-#30
-00
-#31
-10
-#32
-00
-#33
-10
-#34
-00
-#35
-10
-#36
-00
-#37
-10
-#38
-00
-#39
-10
-#40
-00
-#41
-10
-#42
-00
-#43
-10
-#44
-00
-#45
-10
-#46
-00
-#47
-10
-#48
-00
-#49
-10
-#50
-00
-#51
-10
-#52
-00
-#53
-10
-#54
-00
-#55
-10
-#56
-00
-#57
-10
-#58
-00
-#59
-10
-#60
-00
-#61
-10
-#62
-00
-#63
-10
-#64
-00
-#65
-10
-#66
-00
-#67
-10
-#68
-00
-#69
-10
-#70
-00
-#71
-10
-#72
-00
-#73
-10
-#74
-00
-#75
-10
-#76
-00
-#77
-10
-#78
-00
-#79
-10
-#80
-00
-#81
-10
-#82
-00
-#83
-10
-#84
-00
-#85
-10
-#86
-00
-#87
-10
-#88
-00
-#89
-10
-#90
-00
-#91
-10
-#92
-00
-#93
-10
-#94
-00
-#95
-10
-#96
-00
-#97
-10
-#98
-00
-#99
-10
-#100
-00
-#101
-10
-#102
-00
-#103
-10
-#104
-00
-#105
-10
-#106
-00
-#107
-10
-#108
-00
-#109
-10
-#110
-00
-#111
-10
-#112
-00
-#113
-10
-#114
-00
-#115
-10
-#116
-00
-#117
-10
-#118
-00
-#119
-10
-#120
-00
-#121
-10
-#122
-00
-#123
-10
-#124
-00
-#125
-10
-#126
-00
-#127
-10
-#128
-00
-#129
-10
-#130
-00
-#131
-10
-#132
-00
-#133
-10
-#134
-00
-#135
-10
-#136
-00
-#137
-10
-#138
-00
-#139
-10
-#140
-00
-#141
-10
-#142
-00
-#143
-10
-#144
-00
-#145
-10
-#146
-00
-#147
-10
-#148
-00
-#149
-10
-#150
-00
-#151
-10
-#152
-00
-#153
-10
-#154
-00
-#155
-10
-#156
-00
-#157
-10
-#158
-00
-#159
-10
-#160
-00
-#161
-10
-#162
-00
-#163
-10
-#164
-00
-#165
-10
-#166
-00
-#167
-10
-#168
-00
-#169
-10
-#170
-00
-#171
-10
-#172
-00
-#173
-10
-#174
-00
-#175
-10
-#176
-00
-#177
-10
-#178
-00
-#179
-10
-#180
-00
-#181
-10
-#182
-00
-#183
-10
-#184
-00
-#185
-10
-#186
-00
-#187
-10
-#188
-00
-#189
-10
-#190
-00
-#191
-10
-#192
-00
-#193
-10
-#194
-00
-#195
-10
-#196
-00
-#197
-10
-#198
-00
-#199
-10
-#200
-00
+03
+15
+0I
+0(
+0*
+1.
+#9
+0L
+02
+03
+15
+0I
+06
+09
+07
+11
+1F
+1(
+1*
+0.
+1-
+#10
+17
+19
+12
+16
+01
+0F
+0(
+0-
+#11
+1>
+1#
+1<
+1:
+18
+19
+17
+1(
+0*
+1)
+#12
+0>
+0#
+0:
+08
+0(
+0)
+#13
+1>
+1#
+1:
+18
+1(
+1)
+#14
+0(
+#15
+1=
+0>
+1?
+1"
+1C
+1;
+1(
+#16
+0(
+#17
+0=
+1>
+1'
+1!
+0?
+1@
+0%
+0&
+1D
+0C
+1B
+1(
+#18
+0(
