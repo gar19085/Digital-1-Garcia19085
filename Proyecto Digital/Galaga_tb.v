@@ -29,7 +29,7 @@ module testbench();
         $display("posicion");
         $display("CLK |RST | LEFT RIGHT | LEFT2 RIGHT2  DP1 DP2 | P1A P1B P1C | P2A P2B P2C | DONE");
         $monitor("%b  | %b   |  %b     %b  |  %b   %b  |  %b  %b  |  %b  %b  %b  |  %b  %b  %b  | %b", 
-        CLK, RST, LEFT, RIGHT, LEFT2, RIGHT2,DP1, DP2, P1A, P1B, P1C, P2A, P2B, P2C, DONE);
+        CLK, RST, LEFT, RIGHT, LEFT2, RIGHT2, DP1, DP2, P1A, P1B, P1C, P2A, P2B, P2C, DONE);
         CLK = 0; RST = 0; LEFT = 0; RIGHT = 0; LEFT2 = 0; RIGHT2 = 0;  DP1 = 0; DP2 = 0;
         #1 RST = 1; LEFT = 0; RIGHT = 0; LEFT2 = 0; RIGHT2 = 0;  DP1 = 0; DP2 = 0;
         #1 RST = 0; LEFT = 0; RIGHT = 0; LEFT2 = 0; RIGHT2 = 0;  DP1 = 0; DP2 = 0;
