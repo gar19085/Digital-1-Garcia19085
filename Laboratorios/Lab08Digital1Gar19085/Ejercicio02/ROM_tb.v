@@ -3,16 +3,16 @@
 module testbench();
 
 reg [7:0]address;
-wire [7:0] data_out;
+wire [7:0] Dout;
 
 
-ROM4Kx8 Ju87(address, data_out);
+ROM4Kx8 Ju87(address, Dout);
 
 initial begin
         $display("\n");
         $display("Ejercicio 2");
-        $display("address  |  data_out");
-        $monitor("%b   |   %b", address, data_out);
+        $display("address  | address | Dout |  Dout");
+        $monitor("%h |  %b  |   %h   |  %b", address, address, Dout, Dout);
         address = 0;
         #1 address = 0;
         #1 address = 1;
@@ -22,6 +22,10 @@ initial begin
         #1 address = 5;
         #1 address = 6;
         #1 address = 7;
+        #1 address = 8;
+        #1 address = 9;
+        #1 address = 10;
+        #1 address = 11;
 end
 
 //   initial 

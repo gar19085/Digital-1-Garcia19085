@@ -2,15 +2,15 @@
 //LAB08
 
 
-module  ROM4Kx8(address, data_out);
+module  ROM4Kx8(address, Dout);
     input   [7:0] address;
-    output  [7:0] data_out;
+    output  [7:0] Dout;
     
-    assign data_out = my_memory[address];
-    reg [7:0]   my_memory[0:4095];
+    assign Dout = memory[address];
+    reg [7:0]   memory[0:4095];
 
     initial begin
-        $readmemh("memory.list", my_memory);
+        $readmemh("memory.list", memory);
     end
 
 endmodule    
