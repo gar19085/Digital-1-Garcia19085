@@ -27,6 +27,14 @@ initial begin
         #1 SEL = 5;
         #1 B = 5; SEL = 5;
 
+        initial 
+        #15 $finish;
+
+        initial begin
+            $dumpfile("ALU_tb.vcd");
+            $dumpvars(0, testbench);
+        end
+
 end    
 
 
