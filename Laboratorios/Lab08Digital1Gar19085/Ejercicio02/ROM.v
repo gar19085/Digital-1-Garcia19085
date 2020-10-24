@@ -1,9 +1,10 @@
 //UNIVERSIDAD DEL VALLE 
 //LAB08
+//Rodrigo GArcía19085
 
 
 module  ROM4Kx8(address, Dout);
-    input   [7:0] address;
+    input   [11:0] address;
     output  [7:0] Dout;
     
     assign Dout = memory[address];

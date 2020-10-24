@@ -2,7 +2,7 @@
 
 module testbench();
 
-reg [7:0]address;
+reg [11:0]address;
 wire [7:0] Dout;
 
 
@@ -26,6 +26,7 @@ initial begin
         #1 address = 9;
         #1 address = 10;
         #1 address = 11;
+        #1 address = 4094;
 end
 
 //   initial 
