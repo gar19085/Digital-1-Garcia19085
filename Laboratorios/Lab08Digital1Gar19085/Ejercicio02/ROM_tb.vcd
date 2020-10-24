@@ -1,0 +1,86 @@
+$date
+	Sat Oct 24 17:06:11 2020
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module testbench $end
+$var wire 8 ! Dout [7:0] $end
+$var reg 12 " address [11:0] $end
+$scope module Ju87 $end
+$var wire 8 # Dout [7:0] $end
+$var wire 12 $ address [11:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 $
+b10101101 #
+b0 "
+b10101101 !
+$end
+#2
+b11001101 !
+b11001101 #
+b1 "
+b1 $
+#3
+b1001001 !
+b1001001 #
+b10 "
+b10 $
+#4
+b11101111 !
+b11101111 #
+b11 "
+b11 $
+#5
+b10111110 !
+b10111110 #
+b100 "
+b100 $
+#6
+b11010 !
+b11010 #
+b101 "
+b101 $
+#7
+b110101 !
+b110101 #
+b110 "
+b110 $
+#8
+b11111101 !
+b11111101 #
+b111 "
+b111 $
+#9
+b11111111 !
+b11111111 #
+b1000 "
+b1000 $
+#10
+b100 !
+b100 #
+b1001 "
+b1001 $
+#11
+b101010 !
+b101010 #
+b1010 "
+b1010 $
+#12
+b10001111 !
+b10001111 #
+b1011 "
+b1011 $
+#13
+bx !
+bx #
+b111111111110 "
+b111111111110 $
+#20

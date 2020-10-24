@@ -5,26 +5,24 @@
 
 module  ALU(A, B, SEL, OUT);
     input   [3:0] A, B;
-    input   [3:0] SEL;
+    input   [2:0] SEL;
     output  [3:0] OUT;  
     reg [3:0] OUT;
 
     always @ (*)
     begin
         case (SEL)
-            4'b0000:    OUT = A & B;   
-            4'b0001:    OUT = A | B;
-            4'b0010:    OUT = A + B;
-            4'b0011:    OUT = A & ~B;
-            4'b0100:    OUT = A | ~B;
-            4'b0101:    OUT = A - B;
+            3'b000:    OUT = A & B;   
+            3'b001:    OUT = A | B;
+            3'b010:    OUT = A + B;
+            3'b011:    OUT = A & ~B;
+            3'b100:    OUT = A | ~B;
+            3'b101:    OUT = A - B;
+            3'b110:    OUT = (A < B) ? 1:0;
             default:    OUT = A & B;
         endcase
     end    
 endmodule    
-
-
-
 
 
 

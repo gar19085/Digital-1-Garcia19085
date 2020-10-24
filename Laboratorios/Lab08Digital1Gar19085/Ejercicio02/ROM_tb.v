@@ -29,13 +29,13 @@ initial begin
         #1 address = 4094;
 end
 
-//   initial 
-//        #20 $finish;
+   initial 
+        #20 $finish;
 
-//        initial begin
-//            $dumpfile("ROM_tb.vcd");
-//            $dumpvars(0, testbench);
-//        end
+        initial begin
+            $dumpfile("ROM_tb.vcd");
+            $dumpvars(0, testbench);
+        end
 
 
 endmodule
