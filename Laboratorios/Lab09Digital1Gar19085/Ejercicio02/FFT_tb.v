@@ -28,6 +28,8 @@ FFT Ju87(CLK, RST, ENABLE, T, Y);
      #1  RST = 1;
      #1  RST = 0;
      #1  ENABLE = 1;
+     #1  RST = 1;
+     #1  RST = 0;     
      #2  T = 0;
      #2  T = 1;
      #6  T = 0;
