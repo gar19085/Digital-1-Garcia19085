@@ -6,13 +6,10 @@ module FFJK(input CLK, RST, ENABLE, J, K,
         always @ (posedge CLK or posedge RST)begin
             if (RST) begin
                 Q <= 1'b0;
-            else  if (T)
-                Q <= ~Q;
-                else
-                Q <= Q;
             end
             else if (ENABLE) begin
-                Q <= D;
+                Q <= J;
+                Q <= K;
             end
         end
 endmodule
