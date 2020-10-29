@@ -15,13 +15,7 @@ endmodule
 module FFJK(input CLK, RST, ENABLE, J, K,
             output wire Q);
 
-        case ({J,K})
-            : 
-            default: 
-        endcase    
-
-
-
+        
         FFD1 BF(CLK, RST, ENABLE, D, Q);
 
 endmodule
