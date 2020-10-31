@@ -16,8 +16,8 @@ endmodule
 
 module FFT(input wire CLK, RST, ENABLE,
             output wire Y);
-        wire T;    
-        not (T, Y);
+        wire D;    
+        not (D, Y);
         FFD1 Ju88(CLK, RST, ENABLE, D, Y);
 endmodule
 

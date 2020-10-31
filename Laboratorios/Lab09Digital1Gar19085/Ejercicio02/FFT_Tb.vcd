@@ -1,0 +1,118 @@
+$date
+	Fri Oct 30 18:41:23 2020
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module Testbench $end
+$var wire 1 ! Y $end
+$var reg 1 " CLK $end
+$var reg 1 # ENABLE $end
+$var reg 1 $ RST $end
+$var reg 1 % T $end
+$scope module Ju87 $end
+$var wire 1 " CLK $end
+$var wire 1 & D $end
+$var wire 1 # ENABLE $end
+$var wire 1 $ RST $end
+$var wire 1 ! Y $end
+$scope module Ju88 $end
+$var wire 1 " CLK $end
+$var wire 1 & D $end
+$var wire 1 # ENABLE $end
+$var wire 1 $ RST $end
+$var reg 1 ! Q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x&
+0%
+0$
+0#
+0"
+x!
+$end
+#1
+1&
+0!
+1"
+1$
+#2
+0"
+0$
+#3
+1"
+#4
+0"
+1#
+#5
+0&
+1!
+1"
+#6
+0"
+1%
+#7
+1&
+0!
+1"
+#8
+0"
+#9
+0&
+1!
+1"
+#10
+0"
+#11
+1&
+0!
+1"
+#12
+0"
+#13
+0&
+1!
+1"
+#14
+0"
+#15
+1&
+0!
+1"
+#16
+0"
+#17
+0&
+1!
+1"
+#18
+0"
+#19
+1&
+0!
+1"
+#20
+0"
+#21
+0&
+1!
+1"
+#22
+0"
+#23
+1&
+0!
+1"
+#24
+0"
+#25
+0&
+1!
+1"
