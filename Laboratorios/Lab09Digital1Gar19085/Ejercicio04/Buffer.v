@@ -1,4 +1,6 @@
-
+//UNIVERSIDAD DEL VALLE 
+//LAB09
+//Rodrigo GArcía19085
 
 module Buffer(input [3:0] DPS, input AC, output reg [3:0] OUT);
  

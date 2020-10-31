@@ -1,3 +1,6 @@
+//UNIVERSIDAD DEL VALLE 
+//LAB09
+//Rodrigo GArcía19085
 
 module FFD1 (input CLK, RST, ENABLE, D,
             output reg Q);
