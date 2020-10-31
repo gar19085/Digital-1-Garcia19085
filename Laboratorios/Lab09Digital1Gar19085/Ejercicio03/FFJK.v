@@ -14,11 +14,17 @@ endmodule
 
 module FFJK(input CLK, RST, ENABLE, J, K,
             output wire Q);
-        wire S0;
+        wire A1, A2, NK, NS0, S0, SF0;
         
-        assign Q = (~S0 & J) | (S0 & ~K);         
+        not(NK, K);
+        not(NS0, S0);
+        and(A1, NS0, J);
+        and(A2, S0, NK);
+        or(SF0, A1, A2);
+   
+        assign Q = SF0;  
         
-        FFD1 BF(CLK, RST, ENABLE, D, Q);
+        FFD1 BF(CLK, RST, ENABLE, SF0, S0);
 
 endmodule
 
