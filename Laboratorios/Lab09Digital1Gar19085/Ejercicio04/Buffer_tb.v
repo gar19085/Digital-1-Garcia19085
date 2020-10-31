@@ -28,7 +28,7 @@ end
         #20 $finish;
 
         initial begin
-            $dumpfile("ALU_tb.vcd");
+            $dumpfile("Buffer_tb.vcd");
             $dumpvars(0, testbench);
         end
 
