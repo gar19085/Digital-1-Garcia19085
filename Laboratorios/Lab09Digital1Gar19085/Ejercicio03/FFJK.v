@@ -24,7 +24,7 @@ module FFJK(input CLK, RST, ENABLE, J, K,
         and(A1, NS0, J);
         and(A2, S0, NK);
         or(SF0, A1, A2);
-   
+        
         assign Q = SF0;  
         
         FFD1 BF(CLK, RST, ENABLE, SF0, S0);
