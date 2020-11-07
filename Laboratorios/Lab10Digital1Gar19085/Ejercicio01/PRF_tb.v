@@ -28,13 +28,18 @@ initial begin
         #1 ENABLE1 = 1;
         #1 ENABLE2 = 1;
         #1 IN = 12'b00000001;
+        #10 IN = 12'b00001010;
+        #15 LOAD = 1;
+        #1  ENABLE1 = 0; ENABLE2 = 0;
+        #5 LOAD = 1;
+        #1  ENABLE1 = 1; ENABLE2 = 1;
 end
   
    always
     #5  CLK = ~CLK;
   
    initial 
-        #60 $finish;
+        #40 $finish;
 
 
         initial begin

@@ -29,7 +29,7 @@ endmodule
 module FFD8(input CLK, RST, ENABLE, input [7:0] D, 
             output wire [3:0]Q1,
             output wire [3:0]Q2);
-        FFD4 Ju87(CLK, RST, ENABLE,  D[3:0], Q1[3:0]);
+        FFD4 Ju87(CLK, RST, ENABLE,  D[7:4], Q1[3:0]);
         FFD4 Ju88(CLK, RST, ENABLE,  D[3:0], Q2[3:0]);
 
 endmodule            
