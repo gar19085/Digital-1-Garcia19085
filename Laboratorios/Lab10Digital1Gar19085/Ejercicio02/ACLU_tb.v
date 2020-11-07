@@ -32,12 +32,12 @@ initial begin
         #1 IN = 2;
         #1 AC1 = 1;
         #1 ENABLE = 1;
-        #1 AC2 = 1; IN = 4;
+        #1 AC2 = 1;
         #1 SEL = 3'b000;
         #5 SEL = 3'b010;
-        #1 IN = 3; ENABLE = 0;
+        #1 ENABLE = 0;
         #5 SEL = 3'b100;
-        #1 IN = 1; ENABLE = 1;
+        #1 ENABLE = 1;
         #5 SEL = 3'b001;
         #5 SEL = 3'b011;
         
