@@ -36,22 +36,22 @@ endmodule
 
 
 module Counter(RST, CLK, ENABLE, LOAD, E, COUNT);
-input RST, CLK, ENABLE, LOAD;
-input wire [11:0] E;
-output [11:0] COUNT;
-reg [11:0] COUNT;
+    input RST, CLK, ENABLE, LOAD;
+    input wire [11:0] E;
+    output [11:0] COUNT;
+    reg [11:0] COUNT;
 
-always @ (posedge CLK or posedge RST)
-    if (LOAD) begin
-        COUNT <= E;
-    end
+    always @ (posedge CLK or posedge RST)
+        if (LOAD) begin
+            COUNT <= E;
+        end
     else if  (ENABLE) begin
         if (~LOAD);
         COUNT <= COUNT + 1;
-    end 
+        end 
     else if (RST) begin
         COUNT <= 0;   
-    end
+        end
 endmodule
 
 module  ROM4Kx8(address, Dout);
@@ -67,7 +67,7 @@ module  ROM4Kx8(address, Dout);
 
 endmodule    
 
-module MAIN(input CLK, RST, ENABLE1, ENABLE2, LOAD, input [11:0] IN,
+module MAIN1(input CLK, RST, ENABLE1, ENABLE2, LOAD, input [11:0] IN,
             output [3:0] Q1, Q2);
     wire [11:0]COUNTADD;
     wire [7:0]DIN;
@@ -163,7 +163,7 @@ module BUS(input [3:0] DPS, input AC, output reg [3:0] OUT);
 endmodule    
 
 
-module MAIN(CLK, RST, ENABLE, IN, AC1, AC2, SEL, C, ZERO, OUT);
+module MAIN2(CLK, RST, ENABLE, IN, AC1, AC2, SEL, C, ZERO, OUT);
     input CLK, RST, ENABLE;
     input [3:0]IN;
     input AC1, AC2;
@@ -176,5 +176,10 @@ module MAIN(CLK, RST, ENABLE, IN, AC1, AC2, SEL, C, ZERO, OUT);
     ACCUMULATOR B2(CLK, RST, ENABLE, ALO, ACO);
     ALU B3(BO, ACO, SEL, C, ZERO, ALO);
     BUS B4(ALO, AC2, OUT);
+
+endmodule
+
+
+module  RAM();
 
 endmodule
