@@ -1,6 +1,6 @@
 /*
 Rodrigo García
-Lab10
+Proyecto 2 Procesador uP
 */
 
 //FlipFLops Para el Fetch
@@ -23,34 +23,25 @@ module FFD4 (input CLK, RST, ENABLE, input [3:0] D,
         FFD1 F4F2(CLK, RST, ENABLE, D[2], Q[2]);
         FFD1 F4F3(CLK, RST, ENABLE,  D[1], Q[1]);
         FFD1 F4F4(CLK, RST, ENABLE, D[0], Q[0]);
-endmodule    
-
-//Fetch
-module FETCH(input CLK, RST, ENABLE, input [7:0] D, 
-            output wire [3:0]Q1,
-            output wire [3:0]Q2);
-        FFD4 Ju87(CLK, RST, ENABLE,  D[7:4], Q1[3:0]);
-        FFD4 Ju88(CLK, RST, ENABLE,  D[3:0], Q2[3:0]);
-
-endmodule            
+endmodule             
 
 
-module Counter(RST, CLK, ENABLE, LOAD, E, COUNT);
+module Counter(RST, CLK, ENABLE, LOAD, E, PC);
     input RST, CLK, ENABLE, LOAD;
     input wire [11:0] E;
-    output [11:0] COUNT;
-    reg [11:0] COUNT;
+    output [11:0] PC;
+    reg [11:0] PC;
 
     always @ (posedge CLK or posedge RST)
         if (LOAD) begin
-            COUNT <= E;
+            PC <= E;
         end
     else if  (ENABLE) begin
         if (~LOAD);
-        COUNT <= COUNT + 1;
+        PC <= PC + 1;
         end 
     else if (RST) begin
-        COUNT <= 0;   
+        PC <= 0;   
         end
 endmodule
 
@@ -67,19 +58,31 @@ module  ROM4Kx8(address, Dout);
 
 endmodule    
 
-module MAIN1(input CLK, RST, ENABLE1, ENABLE2, LOAD, input [11:0] IN,
-            output [3:0] Q1, Q2);
-    wire [11:0]COUNTADD;
-    wire [7:0]DIN;
+//Fetch
+module FETCH(input CLK, RST, ENABLE, input [7:0] D, 
+            output wire [3:0]Q1,
+            output wire [3:0]Q2);
+        FFD4 Ju87(CLK, RST, ENABLE,  D[7:4], Q1[3:0]);
+        FFD4 Ju88(CLK, RST, ENABLE,  D[3:0], Q2[3:0]);
 
-    Counter PzI(CLK, RST, ENABLE1, LOAD, IN, COUNTADD);
-    ROM4Kx8 PZII(COUNTADD, DIN);
-    FETCH    PzIII(CLK, RST, ENABLE2, DIN, Q1, Q2);
+endmodule   
 
-endmodule
 /*
-Lab 10 Partes iniciales del Procesador
+Partes iniciales del Procesador
 */
+
+module BUS(input [3:0] DPS, input AC, output reg [3:0] OUT);
+ 
+    always @ (*)
+    begin
+        case (AC)
+            1'b0:   OUT = 4'bzzzz;
+            1'b1:   OUT = DPS;
+            default: OUT = 4'bzzzz;
+        endcase
+    end    
+
+endmodule    
 
 module ACCUMULATOR (input CLK, RST, ENABLE, input [3:0] D, 
                     output wire [3:0]Q);
@@ -149,37 +152,71 @@ module  ALU(A, B, SEL, C, ZERO, OUT);
 endmodule    
 
 
-module BUS(input [3:0] DPS, input AC, output reg [3:0] OUT);
- 
+module  RAM4Kx4(address, data, cs, we);
+
+    input [11:0] address;
+    input [3:0] data;
+    input cs, we;
+
+    reg [3:0] data_out;
+    reg [3:0] mem [0:4095];
+
+    assign data = (cs && ! we) ? data_out : 8'bz;
+
+    always @ (address or data or cs or we)
+    begin : MEM_WRITE
+        if (cs && we) begin
+            mem[address] = data;
+        end
+    end
+
+    always @ (address or cs or we)
+    begin : MEM_READ
+        if (cs && ! we) begin
+            data_out = mem[address];
+        end    
+    end    
+
+endmodule
+
+
+module  DECODE(IN, OUT);
+    input   [6:0] IN;
+    output reg [12:0] OUT;
+    
     always @ (*)
     begin
-        case (AC)
-            1'b0:   OUT = 4'bzzzz;
-            1'b1:   OUT = DPS;
-            default: OUT = 4'bzzzz;
+        case (IN)
+        7'bxxxxxx0:     OUT = 13'b1000000001000;
+        7'b00001x1:     OUT = 13'b0100000001000;
+        7'b00000x1:     OUT = 13'b1000000001000;
+        7'b00011x1:     OUT = 13'b1000000001000;
+        7'b00010x1:     OUT = 13'b0100000001000;
+        7'b0010xx1:     OUT = 13'b0001001000010;
+        7'b0011xx1:     OUT = 13'b1001001100000;
+        7'b0100xx1:     OUT = 13'b0011010000010;
+        7'b0101xx1:     OUT = 13'b0011010000100;
+        7'b0110xx1:     OUT = 13'b1011010100000;
+        7'b0111xx1:     OUT = 13'b1000000111000;
+        7'b1000x11:     OUT = 13'b0100000001000;
+        7'b1000x01:     OUT = 13'b1000000001000;
+        7'b1001x11:     OUT = 13'b1000000001000;
+        7'b1001x01:     OUT = 13'b0100000001000;
+        7'b1010xx1:     OUT = 13'b0011011000010;
+        7'b1011xx1:     OUT = 13'b1011011100000;
+        7'b1100xx1:     OUT = 13'b0100000001000;
+        7'b1101xx1:     OUT = 13'b0000000001001;
+        7'b1110xx1:     OUT = 13'b0011100000010;
+        7'b1111xx1:     OUT = 13'b1011100100000;
+            default:    OUT = 13'b1000000001000;
         endcase
-    end    
+    end
+endmodule    
+
+
+module pushbuttons(pb[3:0]);
+    input pb;
 
 endmodule    
 
 
-module MAIN2(CLK, RST, ENABLE, IN, AC1, AC2, SEL, C, ZERO, OUT);
-    input CLK, RST, ENABLE;
-    input [3:0]IN;
-    input AC1, AC2;
-    output C, ZERO;
-    input [2:0] SEL;
-    output [3:0]OUT;
-    wire [3:0] BO, ALO, ACO;
-
-    BUS B1(IN, AC1, BO);
-    ACCUMULATOR B2(CLK, RST, ENABLE, ALO, ACO);
-    ALU B3(BO, ACO, SEL, C, ZERO, ALO);
-    BUS B4(ALO, AC2, OUT);
-
-endmodule
-
-
-module  RAM();
-
-endmodule
