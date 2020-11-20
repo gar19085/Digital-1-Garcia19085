@@ -4,9 +4,9 @@ Proyecto 2 Procesador uP
 */
 
 //FlipFLops Para el Fetch
-module FFD1 (input CLK, RST, ENABLE, D,
+module FFD1 (input clock, RST, ENABLE, D,
             output reg Q);
-        always @ (posedge CLK or posedge RST)begin
+        always @ (posedge clock or posedge RST)begin
             if (RST) begin
                 Q <= 1'b0;
             end
@@ -17,22 +17,30 @@ module FFD1 (input CLK, RST, ENABLE, D,
 endmodule
 
 
-module FFD4 (input CLK, RST, ENABLE, input [3:0] D, 
+module FFD4 (input clock, RST, ENABLE, input [3:0] D, 
             output wire [3:0]Q);
-        FFD1 F4F1(CLK, RST, ENABLE,  D[3], Q[3]);
-        FFD1 F4F2(CLK, RST, ENABLE, D[2], Q[2]);
-        FFD1 F4F3(CLK, RST, ENABLE,  D[1], Q[1]);
-        FFD1 F4F4(CLK, RST, ENABLE, D[0], Q[0]);
+        FFD1 F4F1(clock, RST, ENABLE,  D[3], Q[3]);
+        FFD1 F4F2(clock, RST, ENABLE, D[2], Q[2]);
+        FFD1 F4F3(clock, RST, ENABLE,  D[1], Q[1]);
+        FFD1 F4F4(clock, RST, ENABLE, D[0], Q[0]);
 endmodule             
 
+//Phase
+module PHASE(input wire clock, RST,
+            output wire Y);
+        wire D;    
+        not (D, Y);
+        FFD1 Ju88(clock, RST, ENABLE, D, Y);
+endmodule
 
-module Counter(RST, CLK, ENABLE, LOAD, E, PC);
-    input RST, CLK, ENABLE, LOAD;
+
+module Counter(RST, clock, ENABLE, LOAD, E, PC);
+    input RST, clock, ENABLE, LOAD;
     input wire [11:0] E;
     output [11:0] PC;
     reg [11:0] PC;
 
-    always @ (posedge CLK or posedge RST)
+    always @ (posedge clock or posedge RST)
         if (LOAD) begin
             PC <= E;
         end
@@ -59,11 +67,11 @@ module  ROM4Kx8(address, Dout);
 endmodule    
 
 //Fetch
-module FETCH(input CLK, RST, ENABLE, input [7:0] D, 
+module FETCH(input clock, RST, ENABLE, input [7:0] D, 
             output wire [3:0]Q1,
             output wire [3:0]Q2);
-        FFD4 Ju87(CLK, RST, ENABLE,  D[7:4], Q1[3:0]);
-        FFD4 Ju88(CLK, RST, ENABLE,  D[3:0], Q2[3:0]);
+        FFD4 Ju87(clock, RST, ENABLE,  D[7:4], Q1[3:0]);
+        FFD4 Ju88(clock, RST, ENABLE,  D[3:0], Q2[3:0]);
 
 endmodule   
 
@@ -84,12 +92,12 @@ module BUS(input [3:0] DPS, input AC, output reg [3:0] OUT);
 
 endmodule    
 
-module ACCUMULATOR (input CLK, RST, ENABLE, input [3:0] D, 
+module ACCUMULATOR (input clock, RST, ENABLE, input [3:0] D, 
                     output wire [3:0]Q);
-        FFD1 F4F1(CLK, RST, ENABLE,  D[3], Q[3]);
-        FFD1 F4F2(CLK, RST, ENABLE, D[2], Q[2]);
-        FFD1 F4F3(CLK, RST, ENABLE,  D[1], Q[1]);
-        FFD1 F4F4(CLK, RST, ENABLE, D[0], Q[0]);
+        FFD1 F4F1(clock, RST, ENABLE,  D[3], Q[3]);
+        FFD1 F4F2(clock, RST, ENABLE, D[2], Q[2]);
+        FFD1 F4F3(clock, RST, ENABLE,  D[1], Q[1]);
+        FFD1 F4F4(clock, RST, ENABLE, D[0], Q[0]);
 endmodule    
 
 // C = Carry
@@ -186,7 +194,7 @@ module  DECODE(IN, OUT);
     
     always @ (*)
     begin
-        case (IN)
+        casex (IN)
         7'bxxxxxx0:     OUT = 13'b1000000001000;
         7'b00001x1:     OUT = 13'b0100000001000;
         7'b00000x1:     OUT = 13'b1000000001000;
@@ -214,9 +222,28 @@ module  DECODE(IN, OUT);
 endmodule    
 
 
-module pushbuttons(pb[3:0]);
-    input pb;
 
-endmodule    
+module  uP(clock, reset, pushbuttons, phase,
+            c_flag, z_fag, instr, oprnd, data_bus, FF_out, 
+            accu, program_byte, address_RAM, PC);
+    input clock, reset;
+    input [3:0] pushbuttons;
+    output c_flag, z_flag, phase;
+    output [11:0] PC, address_RAM;
+    output [3:0] instr, oprnd, data_bus, FF_out,accu; 
+    output [7:0] program_byte;
+
+    wire [12:0] DECODE;
+    wire [3:0] ALU;
+    wire Z;
+    wire C;
+    assign address_RAM = {oprnd, program_byte}
+    
+    
+    Counter PzCounter(PC);
+    ROM4kx8 PzRom(PC, program_byte);
+    FETCH   PzFetch(clock, reset, 1'b1, program_byte, instr, oprnd);
 
 
+    
+endmodule
