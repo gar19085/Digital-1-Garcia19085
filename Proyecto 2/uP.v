@@ -260,6 +260,10 @@ module  uP(clock, reset, pushbuttons, phase,
     RAM4Kx4 PzRam       (address_RAM, Decodx[5], Decodx[4], data_bus);
     BUS     PzBusIn     (pushbuttons, Decodx[2] ,data_bus);
     FFD4    FFoutput    (clock, reset, Decodx[0], data_bus, FF_out);
+    /*
+    Los Decodx[?] corresponden al bit especifico del DECODER, los cuales funcionan como enables
+    para los modulos y así realizar las instrucciones especificas del procesador ingresadas en el modulo
+    DECODER
+    */
 
-    
 endmodule
