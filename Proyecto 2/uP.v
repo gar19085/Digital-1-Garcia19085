@@ -1,9 +1,11 @@
 /*
-Rodrigo García
-Proyecto 2 Procesador uP
+Universidad del Valle de Guatemala 
+Digital 1
+Rodrigo García 19085
+Proyecto 2  uP
 */
 
-//FlipFLops Para el Fetch
+//FlipFLops Base para los demas  modulños
 module FFD1 (input clock, RST, ENABLE, D,
             output reg Q);
         always @ (posedge clock or posedge RST)begin
@@ -16,7 +18,7 @@ module FFD1 (input clock, RST, ENABLE, D,
         end   
 endmodule
 
-
+//Flip-Flop de 4 realizado con flip flops de 1 bit
 module FFD4 (input clock, RST, ENABLE, input [3:0] D, 
             output wire [3:0]Q);
         FFD1 F4F1(clock, RST, ENABLE,  D[3], Q[3]);
@@ -25,7 +27,8 @@ module FFD4 (input clock, RST, ENABLE, input [3:0] D,
         FFD1 F4F4(clock, RST, ENABLE, D[0], Q[0]);
 endmodule             
 
-
+//Modulo respectivo al funcionamiento del phase
+//Es un Flip Flop tipo T
 module PHASE(input wire clock, RST, ENABLE,
             output wire Y);
         wire D;    
@@ -33,18 +36,22 @@ module PHASE(input wire clock, RST, ENABLE,
         FFD1 Ju88(clock, RST, ENABLE, D, Y);
 endmodule
 
+//Modulo respectivo al funcionamiento de los Flags
+//Es un Flip-Flop de 2 bits
 module FLAGS(input clock, RST, ENABLE, input [1:0] D, 
             output wire [1:0]Q);
+    //Se realizo por medio de Flip-Flops de 1 bit
     FFD1 FD1(clock, RST, ENABLE,  D[0], Q[0]);
     FFD1 FD2(clock, RST, ENABLE,  D[1], Q[1]);
 endmodule
 
+//Modulo respectivo al funcionamiento del Program Counter
 module Counter(RST, clock, ENABLE, LOAD, E, PC);
     input RST, clock, ENABLE, LOAD;
     input wire [11:0] E;
     output [11:0] PC;
     reg [11:0] PC;
-
+    //Se realizan las condicionales para el funcionamiento del mismo
     always @ (posedge clock or posedge RST)
         if (LOAD) begin
             PC <= E;
@@ -58,33 +65,34 @@ module Counter(RST, clock, ENABLE, LOAD, E, PC);
         end
 endmodule
 
+//Modulo respectivo al funcionamiento de la ROM
 module  ROM4Kx8(address, Dout);
     input   [11:0] address;
     output  [7:0] Dout;
     
     assign Dout = memory[address];
     reg [7:0]   memory[0:4095];
-
+    //Se asigna la instruccion "readmemh" para que pueda leer la información en el .list guardada en hexadecimal
     initial begin
         $readmemh("memory.list", memory);
     end
 endmodule    
 
-//Fetch
+//Modulo respectivo al funcionamiento del FETCH
 module FETCH(input clock, RST, ENABLE, input [7:0] D, 
             output wire [3:0]Q1,
             output wire [3:0]Q2);
+        //Se implemento con 2 Flip-Flops de 4 bits
         FFD4 Ju87(clock, RST, ENABLE,  D[7:4], Q1[3:0]);
         FFD4 Ju88(clock, RST, ENABLE,  D[3:0], Q2[3:0]);
-
 endmodule   
 
-/*
-Partes iniciales del Procesador
-*/
-
-module BUS(input [3:0] DPS, input AC, output reg [3:0] OUT);
- 
+//Modulo respectivo al funcionamiento de los Buffers Triestado
+module BUS(DPS, AC, OUT);
+    input [3:0] DPS;
+    input AC;
+    output reg [3:0] OUT;
+    //Se genera un case para poder indicar las instrucciones del bus
     always @ (*)
     begin
         case (AC)
@@ -95,24 +103,26 @@ module BUS(input [3:0] DPS, input AC, output reg [3:0] OUT);
     end    
 
 endmodule    
-
+//Modulo respectivo al funcionamiento del acumulador
+//Es un Flip-Flop de 4 bits
 module ACCUMULATOR (input clock, RST, ENABLE, input [3:0] D, 
                     output wire [3:0]Q);
+        //Se realizo por medio de Flip-Flops de 1 bit
         FFD1 F4F1(clock, RST, ENABLE,  D[3], Q[3]);
         FFD1 F4F2(clock, RST, ENABLE, D[2], Q[2]);
         FFD1 F4F3(clock, RST, ENABLE,  D[1], Q[1]);
         FFD1 F4F4(clock, RST, ENABLE, D[0], Q[0]);
 endmodule    
 
-// C = Carry
+//Modulo respectivo al funcionamiento de la ALU
 module  ALU(A, B, SEL, C, ZERO, OUT);
     input   [3:0] A, B;
     input   [2:0] SEL;
     output  [3:0] OUT;  
     output  C, ZERO;
-
+    // C = Carry
     reg [4:0] IR; //Registro interno
-    
+    //Función case para poder realizar las instrucciones de la ALU
     always @ (A, B, SEL)
         case (SEL)
             3'b000: IR = A;
@@ -129,7 +139,7 @@ module  ALU(A, B, SEL, C, ZERO, OUT);
     
 endmodule    
 
-
+//Modulo respectivo al funcionamiento de la RAM
 module  RAM4Kx4(address, cs, we, data);
 
     input [11:0] address;
@@ -141,9 +151,9 @@ module  RAM4Kx4(address, cs, we, data);
 
     reg [3:0] data_out;
     reg [3:0] mem [0:4095];
-
+    //Se asignan las instrucciones para el funcionamiento de la RAM
     assign data = (cs && ! we) ? data_out : 8'bz;
-
+    //Se indican las condicionales para que pueda funcionar
     always @ (address or data or cs or we)
     begin : MEM_WRITE
         if (cs && we) begin
@@ -160,13 +170,14 @@ module  RAM4Kx4(address, cs, we, data);
 
 endmodule
 
-
+//Modulo respectivo al funcionamiento del Decoder
 module  DECODE(IN, OUT);
     input   [6:0] IN;
     output  [12:0] OUT;
     
     reg [12:0] signalsReg;
-    
+    /*Se implementa un casez para poder recrear la tabla de funciones del procesador
+    así lee que bits especificos están en uso  y cuales no para realizar una instrucción*/
     always @ (IN)
         casez(IN)
             // any
@@ -213,10 +224,11 @@ module  DECODE(IN, OUT);
     assign OUT = signalsReg;
 endmodule    
 
-
+//Modulo principal para unir todos los modulos que conforman partes del uProcesador 
 module  uP(clock, reset, pushbuttons, phase,
             c_flag, z_flag, instr, oprnd, data_bus, FF_out, 
             accu, program_byte, address_RAM, PC);
+    //Se indican que variables son entradas y cuales son salidas con su respectivo tamaño de bits.         
     input wire clock, reset;
     input wire [3:0] pushbuttons;
     output wire c_flag, z_flag, phase;
@@ -229,10 +241,12 @@ module  uP(clock, reset, pushbuttons, phase,
     wire [3:0] ALU_O;
     wire ZERO;
     wire C;
+    //Es necesario concatenar algunas entradas y salidas para llegar al tamaño de bits necesarios para el modulo 
+    //correspondiente
     assign address_RAM = {oprnd, program_byte};
     assign Decoder = {instr, c_flag, z_flag, phase};
 
-    
+    //Se llama a cada modulo por aparte para comenzar a unir los modulos, con sus respectivos inputs y outputs
     Counter PzCounter   (reset, clock, Decodx[12], Decodx[11], address_RAM, PC);
     ROM4Kx8 PzRom       (PC, program_byte);
     FETCH   PzFetch     (clock, reset, ~phase, program_byte, instr, oprnd);
