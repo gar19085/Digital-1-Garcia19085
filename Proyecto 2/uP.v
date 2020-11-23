@@ -29,10 +29,10 @@ endmodule
 
 //Modulo respectivo al funcionamiento del phase
 //Es un Flip Flop tipo T
-module PHASE(input wire clock, RST, ENABLE,
-            output wire Y);
-        wire D;    
-        not (D, Y);
+module PHASE(input wire clock, RST, ENABLE, 
+            output wire Y);                 
+        wire D;                             
+        not (D, Y);                         
         FFD1 Ju88(clock, RST, ENABLE, D, Y);
 endmodule
 
